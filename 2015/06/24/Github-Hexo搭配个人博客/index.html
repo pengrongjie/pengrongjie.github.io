@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="博落阁">
 <meta property="og:description" content="Github+Hexo+node.js+git搭配个人博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-25T06:56:16.107Z">
+<meta property="og:updated_time" content="2017-07-25T08:44:32.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github+Hexo搭配个人博客">
 <meta name="twitter:description" content="Github+Hexo+node.js+git搭配个人博客">
@@ -364,6 +364,19 @@
 
       
         <p>Github+Hexo+node.js+git搭配个人博客<br><a id="more"></a></p>
+<h2 id="node安装hexo"><a href="#node安装hexo" class="headerlink" title="node安装hexo"></a>node安装hexo</h2><p>全局安装hexo脚手架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>hexo初始化项目文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init hexoBlog</div></pre></td></tr></table></figure></p>
+<p>进入文件夹，安装依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd hexoBlog</div><div class="line">cnpm install</div></pre></td></tr></table></figure></p>
+<p>本地浏览<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo server</div><div class="line">hexo s</div></pre></td></tr></table></figure></p>
+<h2 id="github部分"><a href="#github部分" class="headerlink" title="github部分"></a>github部分</h2><p>新建仓库,仓库名称和用户名一样,并认证邮箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new repository</div><div class="line"></div><div class="line">用户名: pengrongjie</div><div class="line">仓库名: pengrongjie.github.io</div></pre></td></tr></table></figure></p>
+<h2 id="git部分"><a href="#git部分" class="headerlink" title="git部分"></a>git部分</h2><h3 id="配置github-ssh-keygen"><a href="#配置github-ssh-keygen" class="headerlink" title="配置github ssh-keygen"></a>配置github ssh-keygen</h3><p>在hexoBlog,右键Git Bash here，输入邮箱名字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入 ssh-keygen -t rsa -C &quot;352938347@email.com&quot;</div></pre></td></tr></table></figure></p>
+<p>提醒你输入key的名称，你可以不用输入，直接3个回车，就OK了；<br>在C:Documents and SettingsAdministrator下产生两个文件：id_rsa和id_rsa.pub<br>用记事本打开id_rsa.pub文件，复制内容，在github的网站上找到ssh密钥管理页面，添加新公钥 。<br>在git bash中输入ssh -T git@github.com命令，出现Hi sylujia! You’ve successfully authenticated表示成功。</p>
+<h3 id="本地注册"><a href="#本地注册" class="headerlink" title="本地注册"></a>本地注册</h3><p>git config –global user.name “pengrongjie”//用户名<br>git config –global user.email “352938347@qq.com”//填写自己的邮箱</p>
+<h2 id="回到hexo"><a href="#回到hexo" class="headerlink" title="回到hexo"></a>回到hexo</h2><h3 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<p>修改外部_comfig.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
+<h3 id="把本地的博客内容同步到-Github-上"><a href="#把本地的博客内容同步到-Github-上" class="headerlink" title="把本地的博客内容同步到 Github 上"></a>把本地的博客内容同步到 Github 上</h3><p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>配置外部_comfig.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:pengrongjie/pengrongjie.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -405,6 +418,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
           </div>
 
@@ -462,8 +479,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -478,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -489,7 +515,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -500,7 +526,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -545,6 +571,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node安装hexo"><span class="nav-number">1.</span> <span class="nav-text">node安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github部分"><span class="nav-number">2.</span> <span class="nav-text">github部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git部分"><span class="nav-number">3.</span> <span class="nav-text">git部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置github-ssh-keygen"><span class="nav-number">3.1.</span> <span class="nav-text">配置github ssh-keygen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地注册"><span class="nav-number">3.2.</span> <span class="nav-text">本地注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回到hexo"><span class="nav-number">4.</span> <span class="nav-text">回到hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装next主题"><span class="nav-number">4.1.</span> <span class="nav-text">安装next主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把本地的博客内容同步到-Github-上"><span class="nav-number">4.2.</span> <span class="nav-text">把本地的博客内容同步到 Github 上</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
