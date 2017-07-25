@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="博落阁">
 <meta property="og:description" content="font color">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-25T03:39:02.606Z">
+<meta property="og:updated_time" content="2017-07-25T03:50:20.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS一">
 <meta name="twitter:description" content="font color">
@@ -215,6 +215,16 @@
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -361,6 +371,7 @@
 <h2 id="文本text"><a href="#文本text" class="headerlink" title="文本text"></a>文本text</h2><h3 id="文本对齐"><a href="#文本对齐" class="headerlink" title="文本对齐"></a>文本对齐</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  text-align:center;             //文本居中</div><div class="line">  text-align:left;              //文本居左</div><div class="line">  text-align:right;             //文本居右</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="文本修饰"><a href="#文本修饰" class="headerlink" title="文本修饰"></a>文本修饰</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  text-decoration:none;            //没有线</div><div class="line">  text-decoration:overline;        //线在头部</div><div class="line">  text-decoration:line-through;    //线穿透</div><div class="line">  text-decoration:underline;       //线在询问</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">  text-indent:50px;  //用来指定文本的第一行的缩进。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="a链接"><a href="#a链接" class="headerlink" title="a链接"></a>a链接</h2><p>a:hover 必须跟在 a:link 和 a:visited后面<br>a:active 必须跟在 a:hover后面<br>L-V-H-A: love hate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a:link &#123;background-color:#B2FF99;&#125;    /* 未访问链接 */</div><div class="line">a:visited &#123;background-color:#FFFF85;&#125; /* 已访问链接 */</div><div class="line">a:hover &#123;background-color:#FF704D;&#125;   /* 鼠标移动到链接上 */</div><div class="line">a:active &#123;background-color:#FF704D;&#125;  /* 鼠标点击时 */</div></pre></td></tr></table></figure></p>
 <h2 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h2><h3 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div,p,span&#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div p &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="子代选择器"><a href="#子代选择器" class="headerlink" title="子代选择器"></a>子代选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&gt;p &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -493,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -550,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字相关font"><span class="nav-number">1.</span> <span class="nav-text">文字相关font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色相关color"><span class="nav-number">2.</span> <span class="nav-text">颜色相关color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景background"><span class="nav-number">3.</span> <span class="nav-text">背景background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本text"><span class="nav-number">4.</span> <span class="nav-text">文本text</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本对齐"><span class="nav-number">4.1.</span> <span class="nav-text">文本对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本修饰"><span class="nav-number">4.2.</span> <span class="nav-text">文本修饰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本缩进"><span class="nav-number">4.3.</span> <span class="nav-text">文本缩进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合选择器"><span class="nav-number">5.</span> <span class="nav-text">组合选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并集选择器"><span class="nav-number">5.1.</span> <span class="nav-text">并集选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后代选择器"><span class="nav-number">5.2.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子代选择器"><span class="nav-number">5.3.</span> <span class="nav-text">子代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻兄弟选择器"><span class="nav-number">5.4.</span> <span class="nav-text">相邻兄弟选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续兄弟选择器"><span class="nav-number">5.5.</span> <span class="nav-text">后续兄弟选择器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字相关font"><span class="nav-number">1.</span> <span class="nav-text">文字相关font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色相关color"><span class="nav-number">2.</span> <span class="nav-text">颜色相关color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景background"><span class="nav-number">3.</span> <span class="nav-text">背景background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本text"><span class="nav-number">4.</span> <span class="nav-text">文本text</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本对齐"><span class="nav-number">4.1.</span> <span class="nav-text">文本对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本修饰"><span class="nav-number">4.2.</span> <span class="nav-text">文本修饰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本缩进"><span class="nav-number">4.3.</span> <span class="nav-text">文本缩进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a链接"><span class="nav-number">5.</span> <span class="nav-text">a链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合选择器"><span class="nav-number">6.</span> <span class="nav-text">组合选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并集选择器"><span class="nav-number">6.1.</span> <span class="nav-text">并集选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后代选择器"><span class="nav-number">6.2.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子代选择器"><span class="nav-number">6.3.</span> <span class="nav-text">子代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相邻兄弟选择器"><span class="nav-number">6.4.</span> <span class="nav-text">相邻兄弟选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续兄弟选择器"><span class="nav-number">6.5.</span> <span class="nav-text">后续兄弟选择器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -572,7 +583,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2015 - 
+  &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
