@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="vue 中 class 与 style 绑定">
+<meta name="description" content="表彰控件绑定，可以用 v-model 指令在表单控件元素上创建双向数据绑定">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue基础五">
-<meta property="og:url" content="http://yoursite.com/2017/07/26/vue基础五/index.html">
+<meta property="og:title" content="vue基础九">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/vue基础九/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="vue 中 class 与 style 绑定">
+<meta property="og:description" content="表彰控件绑定，可以用 v-model 指令在表单控件元素上创建双向数据绑定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T03:48:50.136Z">
+<meta property="og:updated_time" content="2017-07-26T06:26:26.890Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue基础五">
-<meta name="twitter:description" content="vue 中 class 与 style 绑定">
+<meta name="twitter:title" content="vue基础九">
+<meta name="twitter:description" content="表彰控件绑定，可以用 v-model 指令在表单控件元素上创建双向数据绑定">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/26/vue基础五/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/23/vue基础九/"/>
 
 
 
 
 
-  <title>vue基础五 | 博落阁</title>
+  <title>vue基础九 | 博落阁</title>
   
 
 
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/26/vue基础五/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/23/vue基础九/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林夕">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue基础五</h1>
+          <h1 class="post-title" itemprop="name headline">vue基础九</h1>
         
 
         <div class="post-meta">
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T11:33:26+08:00">
-                2017-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-23T14:14:48+08:00">
+                2017-02-23
               </time>
             
 
@@ -363,28 +363,22 @@
       
 
       
-        <p>vue 中 class 与 style 绑定<br><a id="more"></a></p>
-<h2 id="对象语法"><a href="#对象语法" class="headerlink" title="对象语法"></a>对象语法</h2><h3 id="单个绑定class"><a href="#单个绑定class" class="headerlink" title="单个绑定class"></a>单个绑定class</h3><p>可以传给 v-bind:class 一个对象，以动态地切换 class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>上面的语法表示 classactive 的更新将取决于数据属性 isActive 是否为真值</p>
-<h3 id="v-bind-class-指令可以与普通的-class-属性共存"><a href="#v-bind-class-指令可以与普通的-class-属性共存" class="headerlink" title="v-bind:class 指令可以与普通的 class 属性共存"></a>v-bind:class 指令可以与普通的 class 属性共存</h3><p>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;static&quot;</div><div class="line">     v-bind:class=&quot;&#123; active: isActive, &apos;text-danger&apos;: hasError &#125;&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>script中的data<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  isActive: true,</div><div class="line">  hasError: false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>真正渲染为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;static active&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>当 isActive 或者 hasError 变化时，class 列表将相应地更新。例如，如果 hasError 的值为 true ， class列表将变为 “static active text-danger”</p>
-<h2 id="绑定数据里的一个对象"><a href="#绑定数据里的一个对象" class="headerlink" title="绑定数据里的一个对象"></a>绑定数据里的一个对象</h2><p>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:class=&quot;classObject&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  classObject: &#123;</div><div class="line">    active: true,</div><div class="line">    &apos;text-danger&apos;: false</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>渲染为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;active&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="数组中的语法"><a href="#数组中的语法" class="headerlink" title="数组中的语法"></a>数组中的语法</h3><p>我们可以把一个数组传给 v-bind:class ，以应用一个 class 列表<br>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:class=&quot;[activeClass, errorClass]&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  activeClass: &apos;active&apos;,</div><div class="line">  errorClass: &apos;text-danger&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>渲染为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;active text-danger&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="用在组件上"><a href="#用在组件上" class="headerlink" title="用在组件上"></a>用在组件上</h3><p>声明一个组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;my-component&apos;, &#123;</div><div class="line">  template: &apos;&lt;p class=&quot;foo bar&quot;&gt;Hi&lt;/p&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>然后在使用它的时候添加一些 class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-component class=&quot;baz boo&quot;&gt;&lt;/my-component&gt;</div></pre></td></tr></table></figure></p>
-<p>HTML 最终将被渲染成为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;foo bar baz boo&quot;&gt;Hi&lt;/p&gt;</div></pre></td></tr></table></figure></p>
-<p>同样的适用于绑定 HTML class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-component v-bind:class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/my-component&gt;</div></pre></td></tr></table></figure></p>
-<p>当 isActive 为 true 的时候，HTML 将被渲染成为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;foo bar active&quot;&gt;Hi&lt;/p&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="绑定内联样式"><a href="#绑定内联样式" class="headerlink" title="绑定内联样式"></a>绑定内联样式</h2><p>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:style=&quot;&#123; color: activeColor, fontSize: fontSize + &apos;px&apos; &#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  activeColor: &apos;red&apos;,</div><div class="line">  fontSize: 30</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>直接绑定到一个样式对象通常更好，让模板更清晰<br>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:style=&quot;styleObject&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">  styleObject: &#123;</div><div class="line">    color: &apos;red&apos;,</div><div class="line">    fontSize: &apos;13px&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>表彰控件绑定，可以用 v-model 指令在表单控件元素上创建双向数据绑定<br><a id="more"></a></p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;</div><div class="line">&lt;p&gt;Message is: &#123;&#123; message &#125;&#125;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">message随input中的value而改变</div></pre></td></tr></table></figure></p>
+<h2 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;Multiline message is:&lt;/span&gt;</div><div class="line">&lt;p style=&quot;white-space: pre-line&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;textarea v-model=&quot;message&quot; placeholder=&quot;add multiple lines&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">message随input中的value而改变</div></pre></td></tr></table></figure></p>
+<h2 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h2><p>单个勾选框，逻辑值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;</div><div class="line">&lt;label for=&quot;checkbox&quot;&gt;&#123;&#123; checked &#125;&#125;&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">选中为true,不选为false</div></pre></td></tr></table></figure></p>
+<p>多个勾选框，绑定到同一个数组<br>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;</div><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;</div><div class="line">&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;</div><div class="line">&lt;br&gt;</div><div class="line">&lt;span&gt;Checked names: &#123;&#123; checkedNames &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;...&apos;,</div><div class="line">  data: &#123;</div><div class="line">    checkedNames: []</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">勾选中，就出现在数组中</div></pre></td></tr></table></figure></p>
+<h2 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h2><p>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example-4&quot;&gt;</div><div class="line">  &lt;input type=&quot;radio&quot; id=&quot;one&quot; value=&quot;One&quot; v-model=&quot;picked&quot;&gt;</div><div class="line">  &lt;label for=&quot;one&quot;&gt;One&lt;/label&gt;</div><div class="line">  &lt;br&gt;</div><div class="line">  &lt;input type=&quot;radio&quot; id=&quot;two&quot; value=&quot;Two&quot; v-model=&quot;picked&quot;&gt;</div><div class="line">  &lt;label for=&quot;two&quot;&gt;Two&lt;/label&gt;</div><div class="line">  &lt;br&gt;</div><div class="line">  &lt;span&gt;Picked: &#123;&#123; picked &#125;&#125;&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#example-4&apos;,</div><div class="line">  data: &#123;</div><div class="line">    picked: &apos;&apos;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">只能选中一个,并显示</div></pre></td></tr></table></figure></p>
+<h2 id="选择列表"><a href="#选择列表" class="headerlink" title="选择列表"></a>选择列表</h2><p>template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example-5&quot;&gt;</div><div class="line">  &lt;select v-model=&quot;selected&quot;&gt;</div><div class="line">    &lt;option disabled value=&quot;&quot;&gt;请选择&lt;/option&gt;</div><div class="line">    &lt;option&gt;A&lt;/option&gt;</div><div class="line">    &lt;option&gt;B&lt;/option&gt;</div><div class="line">    &lt;option&gt;C&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;...&apos;,</div><div class="line">  data: &#123;</div><div class="line">    selected: &apos;&apos;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入下拉列表</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -427,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/22/vue基础四/" rel="next" title="vue基础四">
-                <i class="fa fa-chevron-left"></i> vue基础四
+              <a href="/2017/02/20/vue基础八/" rel="next" title="vue基础八">
+                <i class="fa fa-chevron-left"></i> vue基础八
               </a>
             
           </div>
@@ -508,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象语法"><span class="nav-number">1.</span> <span class="nav-text">对象语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单个绑定class"><span class="nav-number">1.1.</span> <span class="nav-text">单个绑定class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-bind-class-指令可以与普通的-class-属性共存"><span class="nav-number">1.2.</span> <span class="nav-text">v-bind:class 指令可以与普通的 class 属性共存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定数据里的一个对象"><span class="nav-number">2.</span> <span class="nav-text">绑定数据里的一个对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组中的语法"><span class="nav-number">2.1.</span> <span class="nav-text">数组中的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用在组件上"><span class="nav-number">2.2.</span> <span class="nav-text">用在组件上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定内联样式"><span class="nav-number">3.</span> <span class="nav-text">绑定内联样式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">1.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多行文本"><span class="nav-number">2.</span> <span class="nav-text">多行文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复选框"><span class="nav-number">3.</span> <span class="nav-text">复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单选按钮"><span class="nav-number">4.</span> <span class="nav-text">单选按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择列表"><span class="nav-number">5.</span> <span class="nav-text">选择列表</span></a></li></ol></div>
             
 
           </div>
