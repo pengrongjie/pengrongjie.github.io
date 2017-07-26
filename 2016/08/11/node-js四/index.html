@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="node," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js四">
+<meta property="og:url" content="http://yoursite.com/2016/08/11/node-js四/index.html">
+<meta property="og:site_name" content="博落阁">
+<meta property="og:description" content="Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-26T07:22:09.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node.js四">
+<meta name="twitter:description" content="Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/11/node-js四/"/>
+
+
+
+
+
+  <title>node.js四 | 博落阁</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博落阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">倚楼听风雨，淡看江湖路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/11/node-js四/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博落阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node.js四</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-11T15:04:44+08:00">
+                2016-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具<br><a id="more"></a></p>
+<h2 id="Express-框架核心特性"><a href="#Express-框架核心特性" class="headerlink" title="Express 框架核心特性"></a>Express 框架核心特性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">可以设置中间件来响应 HTTP 请求</div><div class="line">定义了路由表用于执行不同的 HTTP 请求动作</div><div class="line">可以通过向模板传递参数来动态渲染 HTML 页面</div></pre></td></tr></table></figure>
+<h2 id="安装-Express"><a href="#安装-Express" class="headerlink" title="安装 Express"></a>安装 Express</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install express --save</div></pre></td></tr></table></figure>
+<h2 id="Express-框架实例"><a href="#Express-框架实例" class="headerlink" title="Express 框架实例"></a>Express 框架实例</h2><p>创建 express_demo.js 文件，代码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">   res.send(&apos;Hello World&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var server = app.listen(8081, function () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>执行以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node express_demo.js</div></pre></td></tr></table></figure></p>
+<p>在浏览器中访问 <a href="http://127.0.0.1:8081，结果如下图所示" target="_blank" rel="external">http://127.0.0.1:8081，结果如下图所示</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello world</div></pre></td></tr></table></figure></p>
+<h2 id="Express-路由"><a href="#Express-路由" class="headerlink" title="Express 路由"></a>Express 路由</h2><p>创建 express_demo2.js 文件，代码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">//  主页输出 &quot;Hello World&quot;</div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">   console.log(&quot;主页 GET 请求&quot;);</div><div class="line">   res.send(&apos;Hello GET&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">//  POST 请求</div><div class="line">app.post(&apos;/&apos;, function (req, res) &#123;</div><div class="line">   console.log(&quot;主页 POST 请求&quot;);</div><div class="line">   res.send(&apos;Hello POST&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//  /del_user 页面响应</div><div class="line">app.get(&apos;/del_user&apos;, function (req, res) &#123;</div><div class="line">   console.log(&quot;/del_user 响应 DELETE 请求&quot;);</div><div class="line">   res.send(&apos;删除页面&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//  /list_user 页面 GET 请求</div><div class="line">app.get(&apos;/list_user&apos;, function (req, res) &#123;</div><div class="line">   console.log(&quot;/list_user GET 请求&quot;);</div><div class="line">   res.send(&apos;用户列表页面&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求</div><div class="line">app.get(&apos;/ab*cd&apos;, function(req, res) &#123;   </div><div class="line">   console.log(&quot;/ab*cd GET 请求&quot;);</div><div class="line">   res.send(&apos;正则匹配&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">var server = app.listen(8081, function () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>执行以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node express_demo2.js</div></pre></td></tr></table></figure></p>
+<p>在浏览器中访问 <a href="http://127.0.0.1:8081/list_user，结果如下图所示" target="_blank" rel="external">http://127.0.0.1:8081/list_user，结果如下图所示</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用户列表页面</div></pre></td></tr></table></figure></p>
+<p>在浏览器中访问 <a href="http://127.0.0.1:8081/abcd，结果如下图所示" target="_blank" rel="external">http://127.0.0.1:8081/abcd，结果如下图所示</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正则匹配</div></pre></td></tr></table></figure></p>
+<p>在浏览器中访问 <a href="http://127.0.0.1:8081/abcdefg，结果如下图所示：" target="_blank" rel="external">http://127.0.0.1:8081/abcdefg，结果如下图所示：</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot GET/abcdefg</div></pre></td></tr></table></figure></p>
+<h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><p>Express 提供了内置的中间件 express.static 来设置静态文件如：图片， CSS, JavaScript 等。<br>你可以使用 express.static 中间件来设置静态文件路径。例如，如果你将图片， CSS, JavaScript 文件放在 public 目录下，你可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(&apos;public&apos;));</div></pre></td></tr></table></figure></p>
+<p>我们可以到 public/images 目录下放些图片,如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public/images/logo.png</div></pre></td></tr></table></figure></p>
+<p>创建 express_demo3.js 文件，代码如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.use(express.static(&apos;public&apos;));</div><div class="line"></div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">   res.send(&apos;Hello World&apos;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var server = app.listen(8081, function () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>执行以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node express_demo3.js</div></pre></td></tr></table></figure></p>
+<p>在浏览器中访问 <a href="http://127.0.0.1:8081/images/logo.png" target="_blank" rel="external">http://127.0.0.1:8081/images/logo.png</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">显示图片</div></pre></td></tr></table></figure></p>
+<h2 id="GET-方法"><a href="#GET-方法" class="headerlink" title="GET 方法"></a>GET 方法</h2><p>index.htm 文件代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;form action=&quot;http://127.0.0.1:8081/process_get&quot; method=&quot;GET&quot;&gt;</div><div class="line">First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;</div><div class="line"></div><div class="line">Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;</div><div class="line">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>server.js 文件代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.use(express.static(&apos;public&apos;));</div><div class="line"></div><div class="line">app.get(&apos;/index.htm&apos;, function (req, res) &#123;</div><div class="line">   res.sendFile( __dirname + &quot;/&quot; + &quot;index.html&quot; );</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.get(&apos;/process_get&apos;, function (req, res) &#123;</div><div class="line"></div><div class="line">   // 输出 JSON 格式</div><div class="line">   var response = &#123;</div><div class="line">       &quot;first_name&quot;:req.query.first_name,</div><div class="line">       &quot;last_name&quot;:req.query.last_name</div><div class="line">   &#125;;</div><div class="line">   console.log(response);</div><div class="line">   res.end(JSON.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var server = app.listen(8081, function () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>执行以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node server.js</div></pre></td></tr></table></figure></p>
+<p>浏览器访问 <a href="http://127.0.0.1:8081/index.htm，" target="_blank" rel="external">http://127.0.0.1:8081/index.htm，</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入值，点击按键，跳转到另外一个页面，显示字符串，内容为刚才输入的值</div></pre></td></tr></table></figure></p>
+<h2 id="POST-方法"><a href="#POST-方法" class="headerlink" title="POST 方法"></a>POST 方法</h2><p>index.htm 文件代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;form action=&quot;http://127.0.0.1:8081/process_post&quot; method=&quot;POST&quot;&gt;</div><div class="line">First Name: &lt;input type=&quot;text&quot; name=&quot;first_name&quot;&gt;  &lt;br&gt;</div><div class="line"></div><div class="line">Last Name: &lt;input type=&quot;text&quot; name=&quot;last_name&quot;&gt;</div><div class="line">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>server.js 文件代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">var bodyParser = require(&apos;body-parser&apos;);</div><div class="line"></div><div class="line">// 创建 application/x-www-form-urlencoded 编码解析</div><div class="line">var urlencodedParser = bodyParser.urlencoded(&#123; extended: false &#125;)</div><div class="line"></div><div class="line">app.use(express.static(&apos;public&apos;));</div><div class="line"></div><div class="line">app.get(&apos;/index.htm&apos;, function (req, res) &#123;</div><div class="line">   res.sendFile( __dirname + &quot;/&quot; + &quot;index.htm&quot; );</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(&apos;/process_post&apos;, urlencodedParser, function (req, res) &#123;</div><div class="line"></div><div class="line">   // 输出 JSON 格式</div><div class="line">   var response = &#123;</div><div class="line">       &quot;first_name&quot;:req.body.first_name,</div><div class="line">       &quot;last_name&quot;:req.body.last_name</div><div class="line">   &#125;;</div><div class="line">   console.log(response);</div><div class="line">   res.end(JSON.stringify(response));</div><div class="line">&#125;)</div><div class="line"></div><div class="line">var server = app.listen(8081, function () &#123;</div><div class="line"></div><div class="line">  var host = server.address().address</div><div class="line">  var port = server.address().port</div><div class="line"></div><div class="line">  console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>执行以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node server.js</div></pre></td></tr></table></figure></p>
+<p>浏览器访问 <a href="http://127.0.0.1:8081/index.htm" target="_blank" rel="external">http://127.0.0.1:8081/index.htm</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入值，点击按键，跳转到另外一个页面，显示字符串，内容为刚才输入的值</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/05/node-js三/" rel="next" title="node.js三">
+                <i class="fa fa-chevron-left"></i> node.js三
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/node-js五/" rel="prev" title="node.js五">
+                node.js五 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="林夕" />
+          <p class="site-author-name" itemprop="name">林夕</p>
+           
+              <p class="site-description motion-element" itemprop="description">随风奔跑自由是方向</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pengrongjie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pengrongjie.com" target="_blank" title="个人">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  个人
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-框架核心特性"><span class="nav-number">1.</span> <span class="nav-text">Express 框架核心特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Express"><span class="nav-number">2.</span> <span class="nav-text">安装 Express</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-框架实例"><span class="nav-number">3.</span> <span class="nav-text">Express 框架实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-路由"><span class="nav-number">4.</span> <span class="nav-text">Express 路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态文件"><span class="nav-number">5.</span> <span class="nav-text">静态文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-方法"><span class="nav-number">6.</span> <span class="nav-text">GET 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-方法"><span class="nav-number">7.</span> <span class="nav-text">POST 方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林夕</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
