@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="node," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="node.js创建第一个应用">
-<meta name="keywords" content="node">
+<meta name="description" content="webpack打包">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js创建第一个应用">
-<meta property="og:url" content="http://yoursite.com/2016/07/25/node-js创建第一个应用/index.html">
+<meta property="og:title" content="webpack一">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/webpack一/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="node.js创建第一个应用">
+<meta property="og:description" content="webpack打包">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-25T09:31:04.551Z">
+<meta property="og:updated_time" content="2017-07-26T02:11:19.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js创建第一个应用">
-<meta name="twitter:description" content="node.js创建第一个应用">
+<meta name="twitter:title" content="webpack一">
+<meta name="twitter:description" content="webpack打包">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/25/node-js创建第一个应用/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/webpack一/"/>
 
 
 
 
 
-  <title>node.js创建第一个应用 | 博落阁</title>
+  <title>webpack一 | 博落阁</title>
   
 
 
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/25/node-js创建第一个应用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/02/webpack一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林夕">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node.js创建第一个应用</h1>
+          <h1 class="post-title" itemprop="name headline">webpack一</h1>
         
 
         <div class="post-meta">
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-25T17:29:58+08:00">
-                2016-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-02T09:56:48+08:00">
+                2016-09-02
               </time>
             
 
@@ -329,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
+                  <a href="/categories/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
                   </a>
                 </span>
 
@@ -363,7 +363,18 @@
       
 
       
-        <p>node.js创建第一个应用<br><a id="more"></a></p>
+        <p>webpack打包<br><a id="more"></a></p>
+<h2 id="新建webpack"><a href="#新建webpack" class="headerlink" title="新建webpack"></a>新建webpack</h2><p>node目录下全局安装 webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g webpack</div></pre></td></tr></table></figure></p>
+<p>进入webpack1文件夹，并安装依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd webpack1</div><div class="line">cnpm install webpack --save-dev</div></pre></td></tr></table></figure></p>
+<p>–save-dve        //开发环境<br>–save            //线上环境</p>
+<h2 id="初始化package-json信息，标题，作者…"><a href="#初始化package-json信息，标题，作者…" class="headerlink" title="初始化package.json信息，标题，作者…"></a>初始化package.json信息，标题，作者…</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure>
+<h2 id="webpack1文件夹中创建app文件夹-处理后-和public文件夹-处理前"><a href="#webpack1文件夹中创建app文件夹-处理后-和public文件夹-处理前" class="headerlink" title="webpack1文件夹中创建app文件夹(处理后)和public文件夹(处理前)"></a>webpack1文件夹中创建app文件夹(处理后)和public文件夹(处理前)</h2><p>public/index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;zh&quot;&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;webpack-demo&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&apos;root&apos;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;bundle.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>app/Greeter.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">module.exports = function() &#123;</div><div class="line">    var greet = document.createElement(&apos;div&apos;);</div><div class="line">    greet.textContent = &quot;Hi there and greetings!&quot;;</div><div class="line">    return greet;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>app/main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var greeting = require(&apos;./Greeter.js&apos;);</div><div class="line">document.getElementById(&apos;root&apos;).appendChild(greeting());</div></pre></td></tr></table></figure></p>
+<h2 id="Webpack-配置文件"><a href="#Webpack-配置文件" class="headerlink" title="Webpack 配置文件"></a>Webpack 配置文件</h2><p>包含入口文件路径和存放打包后文件的地方路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    entry: __dirname + &quot;/app/main.js&quot;, //入口文件路径</div><div class="line">    output: &#123;</div><div class="line">        path: __dirname + &quot;/public/&quot;, //存放打包后文件的地方路径</div><div class="line">        filename: &quot;bundle.js&quot; //打包后的文件名</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="终端运行-webpack"><a href="#终端运行-webpack" class="headerlink" title="终端运行 webpack"></a>终端运行 webpack</h2><p> public 文件夹下也会出现打包好的 bundle.js 文件<br> 网页打开index.html，出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi there and greetings!</div></pre></td></tr></table></figure></p>
+<h2 id="利用-npm-更快捷的执行打包任务"><a href="#利用-npm-更快捷的执行打包任务" class="headerlink" title="利用 npm 更快捷的执行打包任务"></a>利用 npm 更快捷的执行打包任务</h2><p>在 package.json 中对 npm 的脚本部分进行相关设置，相当于把 npm 的 start 命令指向 webpack 命令<br>package.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &quot;webpack-demo&quot;,</div><div class="line">    &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">    &quot;description&quot;: &quot;&quot;,</div><div class="line">    &quot;scripts&quot;: &#123;</div><div class="line">        &quot;start&quot;: &quot;webpack&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;author&quot;: &quot;&quot;,</div><div class="line">    &quot;license&quot;: &quot;ISC&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>执行 npm start 后命令行,最终效果是不是与之前的一样</p>
 
       
     </div>
@@ -393,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -406,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/25/tinypng图片压缩/" rel="next" title="tinypng图片压缩">
-                <i class="fa fa-chevron-left"></i> tinypng图片压缩
+              <a href="/2016/07/25/node-js创建第一个应用/" rel="next" title="node.js创建第一个应用">
+                <i class="fa fa-chevron-left"></i> node.js创建第一个应用
               </a>
             
           </div>
@@ -416,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/02/webpack一/" rel="prev" title="webpack一">
-                webpack一 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/03/vue安装/" rel="prev" title="vue安装">
+                vue安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -466,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -549,6 +569,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建webpack"><span class="nav-number">1.</span> <span class="nav-text">新建webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化package-json信息，标题，作者…"><span class="nav-number">2.</span> <span class="nav-text">初始化package.json信息，标题，作者…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack1文件夹中创建app文件夹-处理后-和public文件夹-处理前"><span class="nav-number">3.</span> <span class="nav-text">webpack1文件夹中创建app文件夹(处理后)和public文件夹(处理前)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webpack-配置文件"><span class="nav-number">4.</span> <span class="nav-text">Webpack 配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#终端运行-webpack"><span class="nav-number">5.</span> <span class="nav-text">终端运行 webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-npm-更快捷的执行打包任务"><span class="nav-number">6.</span> <span class="nav-text">利用 npm 更快捷的执行打包任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
