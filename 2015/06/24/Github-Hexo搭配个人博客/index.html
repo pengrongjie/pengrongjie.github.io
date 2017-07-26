@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="博落阁">
 <meta property="og:description" content="Github+Hexo+node.js+git搭配个人博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-25T08:44:32.065Z">
+<meta property="og:updated_time" content="2017-07-25T12:09:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github+Hexo搭配个人博客">
 <meta name="twitter:description" content="Github+Hexo+node.js+git搭配个人博客">
@@ -371,7 +371,7 @@
 <h2 id="github部分"><a href="#github部分" class="headerlink" title="github部分"></a>github部分</h2><p>新建仓库,仓库名称和用户名一样,并认证邮箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new repository</div><div class="line"></div><div class="line">用户名: pengrongjie</div><div class="line">仓库名: pengrongjie.github.io</div></pre></td></tr></table></figure></p>
 <h2 id="git部分"><a href="#git部分" class="headerlink" title="git部分"></a>git部分</h2><h3 id="配置github-ssh-keygen"><a href="#配置github-ssh-keygen" class="headerlink" title="配置github ssh-keygen"></a>配置github ssh-keygen</h3><p>在hexoBlog,右键Git Bash here，输入邮箱名字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入 ssh-keygen -t rsa -C &quot;352938347@email.com&quot;</div></pre></td></tr></table></figure></p>
 <p>提醒你输入key的名称，你可以不用输入，直接3个回车，就OK了；<br>在C:Documents and SettingsAdministrator下产生两个文件：id_rsa和id_rsa.pub<br>用记事本打开id_rsa.pub文件，复制内容，在github的网站上找到ssh密钥管理页面，添加新公钥 。<br>在git bash中输入ssh -T git@github.com命令，出现Hi sylujia! You’ve successfully authenticated表示成功。</p>
-<h3 id="本地注册"><a href="#本地注册" class="headerlink" title="本地注册"></a>本地注册</h3><p>git config –global user.name “pengrongjie”//用户名<br>git config –global user.email “352938347@qq.com”//填写自己的邮箱</p>
+<h3 id="本地注册"><a href="#本地注册" class="headerlink" title="本地注册"></a>本地注册</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;pengrongjie&quot;//用户名</div><div class="line">git config --global user.email &quot;352938347@qq.com&quot;//填写自己的邮箱</div></pre></td></tr></table></figure>
 <h2 id="回到hexo"><a href="#回到hexo" class="headerlink" title="回到hexo"></a>回到hexo</h2><h3 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
 <p>修改外部_comfig.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure></p>
 <h3 id="把本地的博客内容同步到-Github-上"><a href="#把本地的博客内容同步到-Github-上" class="headerlink" title="把本地的博客内容同步到 Github 上"></a>把本地的博客内容同步到 Github 上</h3><p>安装依赖</p>
@@ -504,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -526,7 +526,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
