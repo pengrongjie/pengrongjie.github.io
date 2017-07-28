@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用 this 的四种绑定规则在 JavaScript 中，影响 this 指向的绑定规则有四种：1234默认绑定隐式绑定显式绑定new 绑定 默认绑定这是最直接的一种方式，就是不加任何的修饰符直接调用函数12345678function foo() &amp;#123;    console.log(this);    //w">
+<meta name="description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS十大难点四">
 <meta property="og:url" content="http://yoursite.com/2017/05/22/JS十大难点四/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用 this 的四种绑定规则在 JavaScript 中，影响 this 指向的绑定规则有四种：1234默认绑定隐式绑定显式绑定new 绑定 默认绑定这是最直接的一种方式，就是不加任何的修饰符直接调用函数12345678function foo() &amp;#123;    console.log(this);    //w">
+<meta property="og:description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-28T03:09:29.434Z">
+<meta property="og:updated_time" content="2017-07-28T03:28:48.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS十大难点四">
-<meta name="twitter:description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用 this 的四种绑定规则在 JavaScript 中，影响 this 指向的绑定规则有四种：1234默认绑定隐式绑定显式绑定new 绑定 默认绑定这是最直接的一种方式，就是不加任何的修饰符直接调用函数12345678function foo() &amp;#123;    console.log(this);    //w">
+<meta name="twitter:description" content="thisthis 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用">
 
 
 
@@ -363,7 +363,7 @@
       
 
       
-        <p>this<br>this 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用</p>
+        <p>this<br>this 是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用<br><a id="more"></a></p>
 <h2 id="this-的四种绑定规则"><a href="#this-的四种绑定规则" class="headerlink" title="this 的四种绑定规则"></a>this 的四种绑定规则</h2><p>在 JavaScript 中，影响 this 指向的绑定规则有四种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">默认绑定</div><div class="line">隐式绑定</div><div class="line">显式绑定</div><div class="line">new 绑定</div></pre></td></tr></table></figure></p>
 <h2 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h2><p>这是最直接的一种方式，就是不加任何的修饰符直接调用函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">    console.log(this);    //window</div><div class="line">    console.log(this.a)   // 输出 a,为2</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a = 2;  //  变量声明到全局对象中</div><div class="line"></div><div class="line">foo();</div></pre></td></tr></table></figure></p>
 <h2 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h2><p>这种情况会发生在调用位置存在「上下文对象」的情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">  console.log(this.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">let obj1 = &#123;</div><div class="line">  a: 1,</div><div class="line">  foo,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">let obj2 = &#123;</div><div class="line">  a: 2,</div><div class="line">  foo,</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj1.foo();   // 输出 1</div><div class="line">obj2.foo();   // 输出 2</div></pre></td></tr></table></figure></p>
@@ -495,7 +495,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,7 +506,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

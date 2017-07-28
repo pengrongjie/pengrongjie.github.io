@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="取整函数，动画">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页常见特效四">
+<meta property="og:url" content="http://yoursite.com/2015/10/19/网页常见特效四/index.html">
+<meta property="og:site_name" content="博落阁">
+<meta property="og:description" content="取整函数，动画">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-28T07:43:41.972Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网页常见特效四">
+<meta name="twitter:description" content="取整函数，动画">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/19/网页常见特效四/"/>
+
+
+
+
+
+  <title>网页常见特效四 | 博落阁</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博落阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">倚楼听风雨，淡看江湖路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/19/网页常见特效四/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博落阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网页常见特效四</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-19T11:34:16+08:00">
+                2015-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网页常见特效/" itemprop="url" rel="index">
+                    <span itemprop="name">网页常见特效</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>取整函数，动画<br><a id="more"></a></p>
+<h2 id="三个取整函数"><a href="#三个取整函数" class="headerlink" title="三个取整函数"></a>三个取整函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">console.log(Math.ceil(1.01))</div><div class="line">console.log(Math.ceil(1.9))</div><div class="line">console.log(Math.ceil(-1.3))</div><div class="line">//floor  地板   向下取整</div><div class="line">console.log(Math.floor(1.01))</div><div class="line">console.log(Math.floor(1.9))</div><div class="line">console.log(Math.floor(-1.3))</div><div class="line">// 四舍五入</div><div class="line">console.log(Math.round(1.01))</div><div class="line">console.log(Math.round(1.5))</div><div class="line">//0-1随机数</div><div class="line">console.log(Math.random());</div><div class="line">console.log(Math.random()*10);</div></pre></td></tr></table></figure>
+<h2 id="缓动动画原理"><a href="#缓动动画原理" class="headerlink" title="缓动动画原理"></a>缓动动画原理</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;button id=&quot;btn&quot;&gt;开始&lt;/button&gt;</div><div class="line">&lt;div id=&quot;box&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">div&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    background-color: pink;</div><div class="line">    position: absolute;</div><div class="line">    left: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var btn = document.getElementById(&quot;btn&quot;);</div><div class="line">var box = document.getElementById(&quot;box&quot;);</div><div class="line">var target = 500;   //终点</div><div class="line">var timer = null;  //定时器</div><div class="line">btn.onclick = function()&#123;</div><div class="line">    timer = setInterval(function()&#123;</div><div class="line">        var step = (target - box.offsetLeft)/10;</div><div class="line">        //(500-0)/10=50</div><div class="line">        //(500-50)/10=45</div><div class="line">        //(500-95)/10=40.5</div><div class="line">        console.log(step);</div><div class="line">        step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);</div><div class="line">//            取整，防止最后一步不为0</div><div class="line">        box.style.left = box.offsetLeft + step + &quot;px&quot;;</div><div class="line">        if(box.offsetLeft == target)&#123;</div><div class="line">            clearInterval(timer);</div><div class="line">            alert(&quot;到目标了&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;,30)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="封装缓动动画"><a href="#封装缓动动画" class="headerlink" title="封装缓动动画"></a>封装缓动动画</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;button id=&quot;btn200&quot;&gt;200&lt;/button&gt;</div><div class="line">&lt;button id=&quot;btn400&quot;&gt;400&lt;/button&gt;</div><div class="line">&lt;div id=&quot;div&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">#div &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    background-color: pink;</div><div class="line">    position: absolute;</div><div class="line">    left: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var btn200 = document.getElementById(&quot;btn200&quot;);</div><div class="line">var btn400 = document.getElementById(&quot;btn400&quot;);</div><div class="line">var div = document.getElementById(&quot;div&quot;);</div><div class="line"></div><div class="line">btn200.onclick = function()&#123;</div><div class="line">    Animate(div,200)</div><div class="line">&#125;;</div><div class="line">btn400.onclick = function()&#123;</div><div class="line">    Animate(div,400)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Animate(obj,target)&#123;</div><div class="line">    clearInterval(obj.timer);</div><div class="line">    obj.timer = setInterval(function()&#123;</div><div class="line">        var step = (target - obj.offsetLeft)/10;</div><div class="line">        step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);</div><div class="line">        obj.style.left = obj.offsetLeft + step + &quot;px&quot;;</div><div class="line">        if(obj.offsetLeft == obj.target)&#123;</div><div class="line">            clearInterval(obj.timer);</div><div class="line">            alert(&quot;到终点了&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;,30)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="仿问css属性"><a href="#仿问css属性" class="headerlink" title="仿问css属性"></a>仿问css属性</h2><p>只能打印出行内样式,因为style是变量的一个属性<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot; style=&quot;left:30px;width: 100px;height: 150px;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    background-color: pink;</div><div class="line">    left: 10px;</div><div class="line">    position: absolute;</div><div class="line">    top: 20px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var box =document.getElementById(&quot;box&quot;);</div><div class="line">console.log(box.style.left);</div><div class="line">console.log(box.style[&quot;left&quot;]);</div><div class="line">可以打印外联的样式</div><div class="line">console.log(window.getComputedStyle(box,null).left)</div></pre></td></tr></table></figure></p>
+<p>封装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function fn(attr)&#123;</div><div class="line">    console.log(box.style[attr]);</div><div class="line">&#125;</div><div class="line">fn(&quot;height&quot;);</div><div class="line">fn(&quot;width&quot;);</div></pre></td></tr></table></figure></p>
+<h2 id="json遍历-对象"><a href="#json遍历-对象" class="headerlink" title="json遍历 对象"></a>json遍历 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var jie = &#123;</div><div class="line">    name: &quot;jie&quot;,</div><div class="line">    age: 18,</div><div class="line">    school: &quot;小学&quot;</div><div class="line">&#125;</div><div class="line">var item;</div><div class="line">for(item in jie)&#123;</div><div class="line">    console.log(item);       //可以得到的是  属性</div><div class="line">    console.log(jie[item])   //得到 是属性的  值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="in-运算符-对象"><a href="#in-运算符-对象" class="headerlink" title="in 运算符  对象"></a>in 运算符  对象</h2><p>in 可以用用来判断 json 里面有没有某个属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var json = &#123;name: &quot;刘德华&quot;,age : 55&#125;;</div><div class="line">if(&quot;age&quot; in json)</div><div class="line">    &#123;</div><div class="line">        console.log(&quot;yes&quot;);  // 返回的是 yes</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        console.log(&quot;no&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if(&quot;andy&quot; in json)</div><div class="line">&#123;</div><div class="line">    console.log(&quot;yes&quot;);  // 返回的是 yes</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">    console.log(&quot;no&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="for-in-数组"><a href="#for-in-数组" class="headerlink" title="for in 数组"></a>for in 数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;];</div><div class="line">for(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">    console.log(arr[i]);    //得到的是数组的值</div><div class="line">&#125;</div><div class="line"></div><div class="line">for(var k in arr)&#123;</div><div class="line">    console.log(k);       //得到的是数组的索引号</div><div class="line">    console.log(arr[k]);  //得到的是值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="对象，数组-json"><a href="#对象，数组-json" class="headerlink" title="对象，数组 json"></a>对象，数组 json</h2><p> 对象形式的json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var json1 = &#123;</div><div class="line">    width: 100,</div><div class="line">    height: 200</div><div class="line">&#125;</div><div class="line">console.log(json1.width)   //100</div><div class="line">console.log(json1.height)  //200</div><div class="line">console.log(json1.length);  //undefined</div></pre></td></tr></table></figure></p>
+<p>数组形式的json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var json2 = [</div><div class="line">    &#123;</div><div class="line">        name: &quot;jie&quot;,</div><div class="line">        age: 18</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        name: &quot;biao&quot;,</div><div class="line">        age: 20</div><div class="line">    &#125;</div><div class="line">]</div><div class="line">console.log(json2.name);    //undefined</div><div class="line">console.log(json2.age);     //undefined</div><div class="line">console.log(json2.length);  //2</div><div class="line"></div><div class="line">for(var i=0;i&lt;json2.length;i++)&#123;</div><div class="line">    console.log(json2[i].name);  //jie  biao</div><div class="line">    console.log(json2[i].age);   //18   20</div><div class="line">    console.log(json2[i].length); //undefined undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/13/网页常见特效三/" rel="next" title="网页常见特效三">
+                <i class="fa fa-chevron-left"></i> 网页常见特效三
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/24/网页常见特效五/" rel="prev" title="网页常见特效五">
+                网页常见特效五 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="林夕" />
+          <p class="site-author-name" itemprop="name">林夕</p>
+           
+              <p class="site-description motion-element" itemprop="description">随风奔跑自由是方向</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pengrongjie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pengrongjie.com" target="_blank" title="个人">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  个人
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#三个取整函数"><span class="nav-number">1.</span> <span class="nav-text">三个取整函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动动画原理"><span class="nav-number">2.</span> <span class="nav-text">缓动动画原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装缓动动画"><span class="nav-number">3.</span> <span class="nav-text">封装缓动动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿问css属性"><span class="nav-number">4.</span> <span class="nav-text">仿问css属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json遍历-对象"><span class="nav-number">5.</span> <span class="nav-text">json遍历 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-运算符-对象"><span class="nav-number">6.</span> <span class="nav-text">in 运算符  对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in-数组"><span class="nav-number">7.</span> <span class="nav-text">for in 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象，数组-json"><span class="nav-number">8.</span> <span class="nav-text">对象，数组 json</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林夕</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
