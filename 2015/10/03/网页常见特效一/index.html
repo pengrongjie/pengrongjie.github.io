@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="随风奔跑自由是方向">
+<meta name="description" content="网页常见特效">
 <meta name="keywords" content="网页常见特效">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网页常见特效一">
 <meta property="og:url" content="http://yoursite.com/2015/10/03/网页常见特效一/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="随风奔跑自由是方向">
+<meta property="og:description" content="网页常见特效">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-27T08:11:11.260Z">
+<meta property="og:updated_time" content="2017-07-28T02:30:38.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页常见特效一">
-<meta name="twitter:description" content="随风奔跑自由是方向">
+<meta name="twitter:description" content="网页常见特效">
 
 
 
@@ -363,7 +363,22 @@
       
 
       
-        
+        <p>网页常见特效<br><a id="more"></a></p>
+<h2 id="offset属性"><a href="#offset属性" class="headerlink" title="offset属性"></a>offset属性</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;demo&quot; id=&quot;demo&quot;&gt;adfd&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">#demo &#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    border: 2px solid red;</div><div class="line">    background-color: #008aff;</div><div class="line">    padding: 20px;</div><div class="line">    margin: 30px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var demo = document.getElementById(&quot;demo&quot;);</div><div class="line"></div><div class="line">console.log(demo.offsetHeight);  //244   //返回任何一个元素的高度包括边框和填充，但不是边距</div><div class="line">console.log(demo.offsetWidth);  //244  //返回元素的宽度，包括边框和填充，但不是边距</div><div class="line">console.log(demo.offsetLeft);   //30  //距离左边的距离，返回当前元素的相对水平偏移位置的偏移容器</div><div class="line">console.log(demo.offsetTop);    //30  //距离顶部的距离 ，返回当前元素的相对垂直偏移位置的偏移容器</div><div class="line">console.log(demo.offsetParent); //返回body,	返回元素的偏移容器</div></pre></td></tr></table></figure></p>
+<h2 id="offsetWidth-与-style-width的区别"><a href="#offsetWidth-与-style-width的区别" class="headerlink" title="offsetWidth 与 style.width的区别"></a>offsetWidth 与 style.width的区别</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;demo&quot; style=&quot;width: 300px;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#demo &#123;</div><div class="line">    width: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var demo = document.getElementById(&quot;demo&quot;);</div><div class="line">console.log(demo.style.width);    //得到带单位的值</div><div class="line">console.log(demo.offsetWidth);   //只能得到数字</div><div class="line"></div><div class="line">demo.style.width = &quot;500px&quot;;  // 可以得到 行内的值，也可以更改值</div><div class="line">demo.offsetWidth = 500;  // 可以得到值，但是不能更改值</div><div class="line">console.log(demo.style.width);</div><div class="line">console.log(demo.offsetWidth);</div></pre></td></tr></table></figure></p>
+<h2 id="offset-client-scroll"><a href="#offset-client-scroll" class="headerlink" title="offset client scroll"></a>offset client scroll</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;div&quot;&gt;1111&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line">#div&#123;</div><div class="line">    width: 2000px;</div><div class="line">    height: 2000px;</div><div class="line">    background-color: red;</div><div class="line">    border: 5px solid #000000;</div><div class="line">    padding: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br>元素的高度包括边框和填充，但不是边距<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(div.offsetHeight);</div><div class="line">console.log(div.offsetWidth);</div><div class="line">console.log(document.body.offsetHeight);</div><div class="line">console.log(document.body.offsetWidth);</div></pre></td></tr></table></figure></p>
+<p>在页面上返回内容的可视高度（不包括边框，边距或滚动条）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(div.clientHeight);</div><div class="line">console.log(div.clientWidth);</div><div class="line">console.log(document.body.clientHeight);</div><div class="line">console.log(document.body.clientWidth);</div></pre></td></tr></table></figure></p>
+<p>返回整个元素的高度（包括带滚动条的隐蔽的地方）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(div.clientHeight);</div><div class="line">console.log(div.clientWidth);</div><div class="line">console.log(document.body.clientHeight);</div><div class="line">console.log(document.body.clientWidth);</div></pre></td></tr></table></figure></p>
+<h2 id="元素在一个盒子内的坐标"><a href="#元素在一个盒子内的坐标" class="headerlink" title="元素在一个盒子内的坐标"></a>元素在一个盒子内的坐标</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0; padding:0;&#125;</div><div class="line">.demo &#123;</div><div class="line">    width: 400px;</div><div class="line">    height: 400px;</div><div class="line">    background-color: pink;</div><div class="line">    margin: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var div = document.getElementsByTagName(&quot;div&quot;)[0];</div><div class="line">div.onmousemove = function(event) &#123;</div><div class="line">    var event = event || window.event;</div><div class="line">    var x = event.clientX - this.offsetLeft;</div><div class="line">    var y = event.clientY - this.offsetTop;</div><div class="line">    this.innerHTML = x + &quot;px&quot; + y + &quot;px&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -415,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/02/JQuery一/" rel="prev" title="JQuery一">
-                JQuery一 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/10/06/网页常见特效二/" rel="prev" title="网页常见特效二">
+                网页常见特效二 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -481,7 +505,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,6 +572,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#offset属性"><span class="nav-number">1.</span> <span class="nav-text">offset属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offsetWidth-与-style-width的区别"><span class="nav-number">2.</span> <span class="nav-text">offsetWidth 与 style.width的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offset-client-scroll"><span class="nav-number">3.</span> <span class="nav-text">offset client scroll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素在一个盒子内的坐标"><span class="nav-number">4.</span> <span class="nav-text">元素在一个盒子内的坐标</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
