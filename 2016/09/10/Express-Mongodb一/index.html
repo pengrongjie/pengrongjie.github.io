@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="随风奔跑自由是方向">
+<meta name="description" content="express封装了很多原生的node.js操作，通过安装后的express，可以调用路由、模板引擎、中间件等相关方法，从而很方便的写node.js">
 <meta name="keywords" content="Express">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Express+Mongodb一">
 <meta property="og:url" content="http://yoursite.com/2016/09/10/Express-Mongodb一/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="随风奔跑自由是方向">
+<meta property="og:description" content="express封装了很多原生的node.js操作，通过安装后的express，可以调用路由、模板引擎、中间件等相关方法，从而很方便的写node.js">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-27T08:32:28.525Z">
+<meta property="og:updated_time" content="2017-07-31T03:29:38.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express+Mongodb一">
-<meta name="twitter:description" content="随风奔跑自由是方向">
+<meta name="twitter:description" content="express封装了很多原生的node.js操作，通过安装后的express，可以调用路由、模板引擎、中间件等相关方法，从而很方便的写node.js">
 
 
 
@@ -363,7 +363,36 @@
       
 
       
-        
+        <p>express封装了很多原生的node.js操作，通过安装后的express，可以调用路由、模板引擎、中间件等相关方法，从而很方便的写node.js<br><a id="more"></a></p>
+<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><p>express封装了很多原生的node.js操作，通过安装后的express，可以调用路由、模板引擎、中间件等相关方法，从而很方便的写node.js</p>
+<h3 id="使用命令行全局安装express"><a href="#使用命令行全局安装express" class="headerlink" title="使用命令行全局安装express"></a>使用命令行全局安装express</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install express-generator -g</div></pre></td></tr></table></figure>
+<p> 检测express的版本<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">express --version</div></pre></td></tr></table></figure></p>
+<h3 id="快速生成项目"><a href="#快速生成项目" class="headerlink" title="快速生成项目"></a>快速生成项目</h3><p> 项目名称为 blog<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">express blog</div></pre></td></tr></table></figure></p>
+<h3 id="进入项目并安装依赖"><a href="#进入项目并安装依赖" class="headerlink" title="进入项目并安装依赖"></a>进入项目并安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd blog</div><div class="line">cnpm install</div></pre></td></tr></table></figure>
+<h3 id="启动express"><a href="#启动express" class="headerlink" title="启动express"></a>启动express</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
+<p>在浏览器中，打开 <a href="http://localhost:3000/,就可以看到express欢迎页面" target="_blank" rel="external">http://localhost:3000/,就可以看到express欢迎页面</a></p>
+<h2 id="Mongodb"><a href="#Mongodb" class="headerlink" title="Mongodb"></a>Mongodb</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.mongodb.org/downloads</div></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>解压缩到自己想要安装的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d:\mongodb</div></pre></td></tr></table></figure></p>
+<h3 id="创建日志文件夹"><a href="#创建日志文件夹" class="headerlink" title="创建日志文件夹"></a>创建日志文件夹</h3><p>创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d:\mongodb\data\log\MongoDB.log</div></pre></td></tr></table></figure></p>
+<h3 id="启动mongodb服务"><a href="#启动mongodb服务" class="headerlink" title="启动mongodb服务"></a>启动mongodb服务</h3><p>以管理员权限打开cmd,并切换到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd D:\mongodb\bin</div></pre></td></tr></table></figure></p>
+<p>运行mongodb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">net start mongodb</div></pre></td></tr></table></figure></p>
+<h3 id="在CMD-命令提示符-下操作mongodb"><a href="#在CMD-命令提示符-下操作mongodb" class="headerlink" title="在CMD(命令提示符)下操作mongodb"></a>在CMD(命令提示符)下操作mongodb</h3><p>输入mongo，连接数据库，就可以操作mongodb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo</div></pre></td></tr></table></figure></p>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>查看本地有哪些数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show dbs</div></pre></td></tr></table></figure></p>
+<p>要查看当前所操作的数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db</div></pre></td></tr></table></figure></p>
+<p>当需要新建一个数据库，使用 use DATABASE_NAME 命令，此时本地会自动创建一个名为 DATABASE_NAME 的数据库，因此你无需特意创建数据库。<br>以下是创建一个名为 jie 的数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use jie</div></pre></td></tr></table></figure></p>
+<p>当你再次使用 show dbs 查看本地数据库时，会发现我们刚才创建的 blog 数据库并没有列出来，<br>这是因为新创建的数据库需要执行相应的操作，比如插入文档等，才会被记录到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">show dbs   //没有jie</div><div class="line">db        //jie</div></pre></td></tr></table></figure></p>
+<p>我们尝试着往 blog 数据库插入一个文档，此处的 post 是文档名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.insert(&#123;&quot;content&quot;: &quot;123&quot;&#125;)</div></pre></td></tr></table></figure></p>
+<p>除数据库，删除前需请切换到该数据库，否者的话，会默认删除 test 数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.dropDatabase()</div></pre></td></tr></table></figure></p>
+<h3 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h3><p>此时命令行中会出现 WriteResult({“nInserted” : 1}) ，这表明我们插入数据成功，同时你会在数据存放目录里（G:\blog\data）看到新增了 blog.ns 和 blog.0 两个文件<br>要查看数据里的集合，可通过 show collections 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">show dbs</div><div class="line">use jie</div><div class="line">show collections 或者 tables</div></pre></td></tr></table></figure></p>
+<p>创建一个名为 item 的集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.createCollection(&apos;item&apos;)</div></pre></td></tr></table></figure></p>
+<p>你也可以直接往集合里插入内容，和创建数据库一样，你无需像上面那样特意创建集合，因为当插入数据时，它就自动创建了一个集合。以下命令表示在数据库的 info 集合中，插入一个空文档，由于之前没创建过 info 集合，所以此时是自动新创建的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.info.insert(&#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p>删除一个名为 item 的集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.item.drop();</div></pre></td></tr></table></figure></p>
+<h3 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h3><p>在 post 的集合中，新增单条文档和多条文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.post.insert(&#123;&quot;content&quot;: &quot;123&quot;&#125;)</div><div class="line">db.post.insert([&#123;&quot;content&quot;: &quot;456&quot;&#125;, &#123;&quot;content&quot;: &quot;789&quot;&#125;])</div></pre></td></tr></table></figure></p>
+<p>而查找文档，则分为全部查找和指定查询，以下命令表示查找post全部的文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.find()</div></pre></td></tr></table></figure></p>
+<p>查找 content 为 456 的文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.find(&#123;&#125;, &#123;&quot;content&quot;: &quot;456&quot;&#125;)</div></pre></td></tr></table></figure></p>
+<p>修改文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.update(&#123;&quot;content&quot;: &quot;789&quot;&#125;, &#123;$set: &#123;&quot;content&quot;: &quot;abc&quot;&#125;&#125;)</div></pre></td></tr></table></figure></p>
+<p>删除文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.remove(&#123;&quot;content&quot;: &quot;abc&quot;&#125;)</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -415,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/02/JS十大难点一/" rel="prev" title="JS十大难点一">
-                JS十大难点一 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/12/Express-Mongodb二/" rel="prev" title="Express+Mongodb二">
+                Express+Mongodb二 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -481,7 +519,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,6 +586,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Express"><span class="nav-number">1.</span> <span class="nav-text">Express</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用命令行全局安装express"><span class="nav-number">1.1.</span> <span class="nav-text">使用命令行全局安装express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速生成项目"><span class="nav-number">1.2.</span> <span class="nav-text">快速生成项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入项目并安装依赖"><span class="nav-number">1.3.</span> <span class="nav-text">进入项目并安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动express"><span class="nav-number">1.4.</span> <span class="nav-text">启动express</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mongodb"><span class="nav-number">2.</span> <span class="nav-text">Mongodb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">2.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建日志文件夹"><span class="nav-number">2.3.</span> <span class="nav-text">创建日志文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动mongodb服务"><span class="nav-number">2.4.</span> <span class="nav-text">启动mongodb服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CMD-命令提示符-下操作mongodb"><span class="nav-number">2.5.</span> <span class="nav-text">在CMD(命令提示符)下操作mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">2.6.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合操作"><span class="nav-number">2.7.</span> <span class="nav-text">集合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档操作"><span class="nav-number">2.8.</span> <span class="nav-text">文档操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
