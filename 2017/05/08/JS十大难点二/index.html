@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="闭包">
+<meta name="description" content="作用域,闭包">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS十大难点二">
 <meta property="og:url" content="http://yoursite.com/2017/05/08/JS十大难点二/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="闭包">
+<meta property="og:description" content="作用域,闭包">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-28T02:03:34.102Z">
+<meta property="og:updated_time" content="2017-07-31T01:24:23.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS十大难点二">
-<meta name="twitter:description" content="闭包">
+<meta name="twitter:description" content="作用域,闭包">
 
 
 
@@ -363,7 +363,7 @@
       
 
       
-        <p>闭包<br><a id="more"></a></p>
+        <p>作用域,闭包<br><a id="more"></a></p>
 <h2 id="初识闭包"><a href="#初识闭包" class="headerlink" title="初识闭包"></a>初识闭包</h2><p>点击列表，弹出对应的序号<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;items&quot;&gt;1&lt;/div&gt;</div><div class="line">&lt;div class=&quot;items&quot;&gt;2&lt;/div&gt;</div><div class="line">&lt;div class=&quot;items&quot;&gt;3&lt;/div&gt;</div><div class="line">&lt;div class=&quot;items&quot;&gt;4&lt;/div&gt;</div><div class="line">&lt;div class=&quot;items&quot;&gt;5&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var items = document.getElementsByClassName(&quot;items&quot;);</div><div class="line">for(var i=0;i&lt;items.length;i++)&#123;</div><div class="line">    items[i].onclick=function()&#123;</div><div class="line">        console.log(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">点击，总是返回5,即 items.length 的值</div></pre></td></tr></table></figure></p>
@@ -497,7 +497,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
