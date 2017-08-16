@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="随风奔跑自由是方向">
+<meta name="description" content="vue篇">
 <meta name="keywords" content="vue+node+mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前后端分离一">
 <meta property="og:url" content="http://yoursite.com/2017/04/01/前后端分离一/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="随风奔跑自由是方向">
+<meta property="og:description" content="vue篇">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-31T01:42:46.841Z">
+<meta property="og:updated_time" content="2017-08-01T08:41:42.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离一">
-<meta name="twitter:description" content="随风奔跑自由是方向">
+<meta name="twitter:description" content="vue篇">
 
 
 
@@ -363,7 +363,15 @@
       
 
       
-        
+        <p>vue篇<br><a id="more"></a></p>
+<h2 id="引入新组件"><a href="#引入新组件" class="headerlink" title="引入新组件"></a>引入新组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><h3 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h3><p>安装axios<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cnpm install axios --save</div><div class="line">cnpm install vue-axios --save</div></pre></td></tr></table></figure></p>
+<p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import Axios from &apos;axios&apos;</div><div class="line">import vueAxios from &apos;vue-axios&apos;</div><div class="line"></div><div class="line">Vue.use(vueAxios, Axios)</div></pre></td></tr></table></figure></p>
+<p>页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">data()&#123;</div><div class="line">  return &#123;</div><div class="line">    peps: &apos;&apos;</div><div class="line">    // peps: &#123;&#125;</div><div class="line">    // peps: []</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">created () &#123;</div><div class="line">  this.axios.get(&apos;http://cnodejs.org/api/v1/topics&apos;)</div><div class="line">    .then((response) =&gt; &#123;</div><div class="line">      this.peps = response.data;</div><div class="line">      console.log(this.peps);</div><div class="line">    &#125;).catch(function(error)&#123;</div><div class="line">      console.log(error)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h3><p>安装axios<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install axios --save</div></pre></td></tr></table></figure></p>
+<p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import axios from &apos;axios&apos;</div><div class="line">Vue.prototype.$http = axios</div></pre></td></tr></table></figure></p>
+<p>页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">data()&#123;</div><div class="line">  return &#123;</div><div class="line">    peps: &apos;&apos;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">&#125;,</div><div class="line">created () &#123;</div><div class="line">    this.$http.get(&apos;http://cnodejs.org/api/v1/topics&apos;)</div><div class="line">    .then((response) =&gt; &#123;</div><div class="line">      this.peps = response.data;</div><div class="line">      console.log(this.peps);</div><div class="line">    &#125;).catch((error) =&gt;&#123;</div><div class="line">      console.log(error)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -465,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -548,6 +565,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入新组件"><span class="nav-number">1.</span> <span class="nav-text">引入新组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">2.</span> <span class="nav-text">axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种"><span class="nav-number">2.1.</span> <span class="nav-text">第一种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种"><span class="nav-number">2.2.</span> <span class="nav-text">第二种</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
