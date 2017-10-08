@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="多个tab切换，闭包，节流，下拉菜单">
+<meta name="description" content="随风奔跑自由是方向">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网页常见特效五">
 <meta property="og:url" content="http://yoursite.com/2015/10/24/网页常见特效五/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="多个tab切换，闭包，节流，下拉菜单">
+<meta property="og:description" content="随风奔跑自由是方向">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-29T03:14:46.669Z">
+<meta property="og:updated_time" content="2017-10-08T08:46:17.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页常见特效五">
-<meta name="twitter:description" content="多个tab切换，闭包，节流，下拉菜单">
+<meta name="twitter:description" content="随风奔跑自由是方向">
 
 
 
@@ -329,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网页常见特效/" itemprop="url" rel="index">
-                    <span itemprop="name">网页常见特效</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -363,15 +363,7 @@
       
 
       
-        <p>多个tab切换，闭包，节流，下拉菜单<br><a id="more"></a></p>
-<h2 id="多个tab切换"><a href="#多个tab切换" class="headerlink" title="多个tab切换"></a>多个tab切换</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;box&quot; id=&quot;one&quot;&gt;</div><div class="line">    &lt;div class=&quot;mt&quot;&gt;</div><div class="line">        &lt;span class=&quot;current&quot;&gt;新闻&lt;/span&gt;</div><div class="line">        &lt;span&gt;体育&lt;/span&gt;</div><div class="line">        &lt;span&gt;娱乐&lt;/span&gt;</div><div class="line">        &lt;span&gt;八卦&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;mb&quot;&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li class=&quot;show&quot;&gt;新闻模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;体育模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;娱乐模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;八卦模块&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;box&quot; id=&quot;two&quot;&gt;</div><div class="line">    &lt;div class=&quot;mt&quot;&gt;</div><div class="line">        &lt;span class=&quot;current&quot;&gt;新闻&lt;/span&gt;</div><div class="line">        &lt;span&gt;体育&lt;/span&gt;</div><div class="line">        &lt;span&gt;娱乐&lt;/span&gt;</div><div class="line">        &lt;span&gt;八卦&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;mb&quot;&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li class=&quot;show&quot;&gt;新闻模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;体育模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;娱乐模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;八卦模块&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;box&quot; id=&quot;three&quot;&gt;</div><div class="line">    &lt;div class=&quot;mt&quot;&gt;</div><div class="line">        &lt;span class=&quot;current&quot;&gt;新闻&lt;/span&gt;</div><div class="line">        &lt;span&gt;体育&lt;/span&gt;</div><div class="line">        &lt;span&gt;娱乐&lt;/span&gt;</div><div class="line">        &lt;span&gt;八卦&lt;/span&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;mb&quot;&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li class=&quot;show&quot;&gt;新闻模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;体育模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;娱乐模块&lt;/li&gt;</div><div class="line">            &lt;li&gt;八卦模块&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">*&#123;margin:0;padding:0;&#125;</div><div class="line">ul&#123;list-style:none;&#125;</div><div class="line">.box &#123;</div><div class="line">    width: 350px;</div><div class="line">    height: 300px;</div><div class="line">    border:1px solid #ccc;</div><div class="line">    margin: 100px auto;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div><div class="line">.mt span &#123;</div><div class="line">    display: inline-block;</div><div class="line">    width: 80px;</div><div class="line">    height: 30px;</div><div class="line">    background-color: pink;</div><div class="line">    text-align: center;</div><div class="line">    line-height: 30px;</div><div class="line">    cursor: pointer;</div><div class="line">&#125;</div><div class="line">.mt span.current &#123;</div><div class="line">    background-color: purple;</div><div class="line">&#125;</div><div class="line">.mb li &#123;</div><div class="line">    width: 100%;</div><div class="line">    height: 270px;</div><div class="line">    background-color: purple;</div><div class="line">    display: none;</div><div class="line">&#125;</div><div class="line">.mb li.show &#123;</div><div class="line">    display: block;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">    //要想多个盒子不相互影响 ，我们可以通过id 给他们分开</div><div class="line">    //封装tab栏切换函数</div><div class="line">    function tab(obj)&#123;</div><div class="line">        var target = document.getElementById(obj);</div><div class="line">        var spans = target.getElementsByTagName(&quot;span&quot;);</div><div class="line">        var lis = target.getElementsByTagName(&quot;li&quot;);</div><div class="line">        for(var i=0;i&lt;spans.length;i++)</div><div class="line">        &#123;</div><div class="line">            //  spans[i].index = i;</div><div class="line">            spans[i].onmouseover =  function (num) &#123;</div><div class="line">                return function()&#123;</div><div class="line">                    for(var j=0; j&lt;spans.length;j++)</div><div class="line">                    &#123;</div><div class="line">                        spans[j].className = &quot;&quot;;</div><div class="line">                        lis[j].className = &quot;&quot;;</div><div class="line">                    &#125;</div><div class="line">                    spans[num].className = &quot;current&quot;;</div><div class="line">                    lis[num].className = &quot;show&quot;;</div><div class="line">                &#125;</div><div class="line">            &#125;(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    tab(&quot;one&quot;);</div><div class="line">    tab(&quot;two&quot;);</div><div class="line">    tab(&quot;three&quot;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="节流版本"><a href="#节流版本" class="headerlink" title="节流版本"></a>节流版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">window.onload = function()&#123;</div><div class="line">    //要想多个盒子不相互影响 ，我们可以通过id 给他们分开</div><div class="line">    //封装tab栏切换函数</div><div class="line">    function tab(obj)&#123;</div><div class="line">        var target = document.getElementById(obj);</div><div class="line">        var spans = target.getElementsByTagName(&quot;span&quot;);</div><div class="line">        var lis = target.getElementsByTagName(&quot;li&quot;);</div><div class="line">        for(var i=0;i&lt;spans.length;i++)</div><div class="line">        &#123;</div><div class="line">            //  spans[i].index = i;</div><div class="line">            var timer = null;</div><div class="line">            spans[i].onmouseover =  function (num) &#123;</div><div class="line">                return function()&#123;</div><div class="line">                    clearTimeout(timer);</div><div class="line">                    timer = setTimeout(function()&#123;</div><div class="line">                        for(var j=0; j&lt;spans.length;j++)</div><div class="line">                        &#123;</div><div class="line">                            spans[j].className = &quot;&quot;;</div><div class="line">                            lis[j].className = &quot;&quot;;</div><div class="line">                        &#125;</div><div class="line">                        spans[num].className = &quot;current&quot;;</div><div class="line">                        lis[num].className = &quot;show&quot;;</div><div class="line">                    &#125;,300)</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;(i);</div><div class="line">            spans[i].onmouseout = function() &#123;</div><div class="line">                clearTimeout(timer);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    tab(&quot;one&quot;);</div><div class="line">    tab(&quot;two&quot;);</div><div class="line">    tab(&quot;three&quot;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;all&quot; id=&quot;list&quot;&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;一级菜单</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">        &lt;li&gt;一级菜单</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">        &lt;li&gt;一级菜单</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">                &lt;li&gt;二级菜单&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">    list-style: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.all &#123;</div><div class="line">    width: 330px;</div><div class="line">    height: 30px;</div><div class="line">    background: url(img/bg.jpg) no-repeat;</div><div class="line">    margin: 100px auto;</div><div class="line">    line-height: 30px;</div><div class="line">    text-align: center;</div><div class="line">    padding-left: 10px;</div><div class="line">    margin-bottom: 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.all ul li &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 30px;</div><div class="line">    background: url(img/libg.jpg);</div><div class="line">    float: left;</div><div class="line">    margin-right: 10px;</div><div class="line">    position: relative;</div><div class="line">    cursor: pointer;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.all ul ul &#123;</div><div class="line">    position: absolute;</div><div class="line">    left: 0;</div><div class="line">    top: 30px;</div><div class="line">    display: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// 获取对象     遍历对象操作     显示模块   隐藏模块</div><div class="line"></div><div class="line">function List(id) &#123;  //  获取对象</div><div class="line">    this.id = document.getElementById(id);  // 取 id 值</div><div class="line">    this.lis = this.id.children[0].children;  // 获取一级菜单所有的li</div><div class="line">&#125;</div><div class="line">// init 初始化</div><div class="line">List.prototype.init = function () &#123;  // 遍历所有的li 显示和隐藏</div><div class="line">    var that = this;</div><div class="line">    for (var i = 0; i &lt; this.lis.length; i++) &#123;</div><div class="line">        this.lis[i].index = i;</div><div class="line">        this.lis[i].onmouseover = function () &#123;</div><div class="line">            that.show(this.children[0]);  //  显示出来</div><div class="line">        &#125;</div><div class="line">        this.lis[i].onmouseout = function () &#123;</div><div class="line">            that.hide(this.children[0]);  // 隐藏起来</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//  显示模块</div><div class="line">List.prototype.show = function (obj) &#123;</div><div class="line">    obj.style.display = &quot;block&quot;;</div><div class="line">&#125;</div><div class="line">// 隐藏模块</div><div class="line">List.prototype.hide = function (obj) &#123;</div><div class="line">    obj.style.display = &quot;none&quot;;</div><div class="line">&#125;</div><div class="line">var list = new List(&quot;list&quot;);  // 实例化了一个对象 叫  list</div><div class="line">list.init();</div></pre></td></tr></table></figure></p>
-
+        
       
     </div>
 
@@ -473,17 +465,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -498,7 +481,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -509,7 +492,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -520,7 +503,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -565,22 +548,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多个tab切换"><span class="nav-number">1.</span> <span class="nav-text">多个tab切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节流版本"><span class="nav-number">2.</span> <span class="nav-text">节流版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下拉菜单"><span class="nav-number">3.</span> <span class="nav-text">下拉菜单</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

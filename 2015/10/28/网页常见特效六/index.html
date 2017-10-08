@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="作用域，闭包，原型，面向对象">
+<meta name="description" content="随风奔跑自由是方向">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网页常见特效六">
 <meta property="og:url" content="http://yoursite.com/2015/10/28/网页常见特效六/index.html">
 <meta property="og:site_name" content="博落阁">
-<meta property="og:description" content="作用域，闭包，原型，面向对象">
+<meta property="og:description" content="随风奔跑自由是方向">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-29T03:06:28.384Z">
+<meta property="og:updated_time" content="2017-10-08T08:46:00.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页常见特效六">
-<meta name="twitter:description" content="作用域，闭包，原型，面向对象">
+<meta name="twitter:description" content="随风奔跑自由是方向">
 
 
 
@@ -329,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网页常见特效/" itemprop="url" rel="index">
-                    <span itemprop="name">网页常见特效</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -363,27 +363,7 @@
       
 
       
-        <p>作用域，闭包，原型，面向对象<br><a id="more"></a></p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>声明函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fun();  // 调用函数    放到哪个位置都可以</div><div class="line">function fun() &#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>自定义函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var fn = function() &#123;</div><div class="line">      console.log(4);</div><div class="line">  &#125;</div><div class="line">fn();   // 调用函数  必须再函数声明的下面 先声明后使用</div></pre></td></tr></table></figure></p>
-<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//   变量的作用域   全局变量 和 局部变量</div><div class="line">var key = &quot;你好吗&quot;;   // 全局变量</div><div class="line"> function fun() &#123;</div><div class="line">     var num = 10;   // 再函数内部声明的   内部变量</div><div class="line">     console.log(num);</div><div class="line">     console.log(key);</div><div class="line"> &#125;</div><div class="line"> fun();</div><div class="line"> console.log(num);</div></pre></td></tr></table></figure>
-<h2 id="闭包原理"><a href="#闭包原理" class="headerlink" title="闭包原理"></a>闭包原理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function fun() &#123;</div><div class="line">    var num = 10;   // 让fun 函数以外的函数 的使用 num 的值  就可以创建闭包</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(num);  // 这样子就错了  num 是一个局部变量</div></pre></td></tr></table></figure>
-<h2 id="变量的作用链接域"><a href="#变量的作用链接域" class="headerlink" title="变量的作用链接域"></a>变量的作用链接域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function outFun() &#123;</div><div class="line">    var num = 10;  //  outFun 的一个变量</div><div class="line">    function inFun() &#123;</div><div class="line">        var key = 10;</div><div class="line">        console.log(num);  //   外部函数的变量可以被内部函数所使用</div><div class="line">    &#125;</div><div class="line">    console.log(key);    // 这样是不可以的，内部函数的变量不可以被外部函数所使用</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="闭包的常用写法"><a href="#闭包的常用写法" class="headerlink" title="闭包的常用写法"></a>闭包的常用写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function outerFun()  // 外部函数</div><div class="line">&#123;</div><div class="line">    var a=0;    // 清空</div><div class="line">    function innerFun()  // 内部函数</div><div class="line">    &#123;</div><div class="line">        a++;</div><div class="line">        alert(a);</div><div class="line">    &#125;</div><div class="line">    return innerFun;  // 注意这里  核心</div><div class="line">&#125;</div><div class="line">var obj=outerFun();   </div><div class="line">obj();  // 1  </div><div class="line">obj();  // 2</div><div class="line">var obj2= outerFun();</div><div class="line">obj2();  // 1</div><div class="line">obj2();   //   2</div></pre></td></tr></table></figure>
-<h2 id="闭包的原理"><a href="#闭包的原理" class="headerlink" title="闭包的原理"></a>闭包的原理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function outFun() &#123;</div><div class="line">    var num = 10;</div><div class="line">    function inFun() &#123;   //  内部的函数可以使用外部的函数 变量</div><div class="line">        console.log(num);</div><div class="line">    &#125;</div><div class="line">    return inFun;  // 不带括号</div><div class="line">&#125;</div><div class="line">var obj = outFun();</div><div class="line">// obj = function inFun() &#123; console.log(num)&#125;</div><div class="line">obj();</div></pre></td></tr></table></figure>
-<h2 id="闭包传递参数"><a href="#闭包传递参数" class="headerlink" title="闭包传递参数"></a>闭包传递参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Fun(x) &#123;</div><div class="line">    return function(y) &#123;</div><div class="line">        console.log(x+y);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj = Fun(4);</div><div class="line">// 相当于  obj = function() &#123;console.log(x)&#125;</div><div class="line">obj();</div><div class="line">obj(2);</div></pre></td></tr></table></figure>
-<h2 id="事件传递参数"><a href="#事件传递参数" class="headerlink" title="事件传递参数"></a>事件传递参数</h2><p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;button id=&quot;btn1&quot;&gt;右走&lt;/button&gt;</div><div class="line">&lt;button id=&quot;btn2&quot;&gt;左走&lt;/button&gt;</div><div class="line">&lt;div id=&quot;box&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">left: 0;</div><div class="line">background-color: pink;</div><div class="line">width: 100px;</div><div class="line">height: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>script<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var btn1 = document.getElementById(&quot;btn1&quot;);</div><div class="line">var btn2 = document.getElementById(&quot;btn2&quot;);</div><div class="line">var box = document.getElementById(&quot;box&quot;);</div><div class="line"></div><div class="line">function move(speed) &#123;</div><div class="line">    return function() &#123;</div><div class="line">        box.style.left = box.offsetLeft + speed + &quot;px&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">btn1.onclick = move(5);</div><div class="line">btn2.onclick = move(-5);</div></pre></td></tr></table></figure></p>
-<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var fun = function() &#123;&#125;;</div><div class="line">fun(); // 立即执行</div><div class="line"></div><div class="line">(function()&#123;&#125;)();    // 立即执行</div></pre></td></tr></table></figure>
-<h2 id="对象数据类型"><a href="#对象数据类型" class="headerlink" title="对象数据类型"></a>对象数据类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var num = 10;   // 变量</div><div class="line">num.index  = 20;</div><div class="line">console.log(num.index);   //underfind</div><div class="line">var arr = [];  // 数组</div><div class="line">arr.index = 10;  // 数组arr 的 一个 index  属性</div><div class="line">console.log(arr.index);   //10</div></pre></td></tr></table></figure>
-<h2 id="声明对象"><a href="#声明对象" class="headerlink" title="声明对象"></a>声明对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//   var obj = new Object();</div><div class="line">var obj = &#123;&#125;;  // 声明对象</div><div class="line">obj.name = &quot;刘德华&quot;;  // 属性</div><div class="line">obj.age = 55;</div><div class="line">obj.showName = function() &#123;   // 声明方法    方法一定带有 ()</div><div class="line">    alert(&quot;俺是刘德华&quot;);</div><div class="line">&#125;</div><div class="line">obj.showAge = function() &#123;</div><div class="line">    alert(&quot;俺今年18岁&quot;);</div><div class="line">&#125;</div><div class="line">console.log(obj.name);  // 调用属性</div><div class="line">console.log(obj.age);</div><div class="line">obj.showName();   //  调用方法</div><div class="line">obj.showAge();</div></pre></td></tr></table></figure>
-<h2 id="函数版本的对象"><a href="#函数版本的对象" class="headerlink" title="函数版本的对象"></a>函数版本的对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;</div><div class="line">    var obj = &#123;&#125;;  // 声明对象</div><div class="line">    obj.name = name;</div><div class="line">    obj.age = age;</div><div class="line">    obj.showName = function() &#123;</div><div class="line">        alert(&quot;我的名字是&quot; + name);</div><div class="line">    &#125;</div><div class="line">    obj.showAge = function() &#123;</div><div class="line">        alert(&quot;我的年龄是&quot; + age);</div><div class="line">    &#125;</div><div class="line">    return obj;  // 返回对象  this</div><div class="line">&#125;</div><div class="line">var xiaoming = Person(&quot;小明1&quot;,12);</div><div class="line">console.log(xiaoming.name);</div><div class="line">console.log(xiaoming.age);</div><div class="line">xiaoming.showName();</div><div class="line">var daming = Person(&quot;大明1&quot;,12);</div><div class="line">daming.showName();</div></pre></td></tr></table></figure>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>this 指向的是 函数的调用者 或者是 事件的调用者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function fun() &#123;   </div><div class="line">    alert(this);</div><div class="line">&#125;</div><div class="line">fun();   //   这个的this 指向的是 window</div><div class="line"></div><div class="line">function fn() &#123;</div><div class="line">    alert(this);</div><div class="line">&#125;</div><div class="line">new fn();  // 添加了  new 的函数 this 指向的是 新的对象</div><div class="line"></div><div class="line">function again() &#123;</div><div class="line">    this.x = 10;  //  x  window</div><div class="line">&#125;</div><div class="line">again();</div><div class="line">console.log(window.x);</div><div class="line">function person() &#123;</div><div class="line">    this.x = 20;</div><div class="line">&#125;</div><div class="line">var demo =             new person();</div><div class="line">var demo1 =            new person();</div><div class="line"> //  实例 对象   吃的苹果     类</div><div class="line">console.log(demo.x);</div></pre></td></tr></table></figure></p>
-<h2 id="new关键字声明"><a href="#new关键字声明" class="headerlink" title="new关键字声明"></a>new关键字声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;     // 构造函数 就是一个普通函数 为了和普通函数区别 第一个字母大写</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.showName = function() &#123;</div><div class="line">        alert(&quot;我的名字是&quot; + name);</div><div class="line">    &#125;</div><div class="line">    this.showAge = function() &#123;</div><div class="line">        alert(&quot;我的年龄是&quot;+ age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var demo =  new Person(&quot;刘德华&quot;,18);</div><div class="line">var demo1 = new Person(&quot;刘德华&quot;,18);</div><div class="line">console.log(demo.name); // 提倡用调用</div><div class="line">console.log(demo[&quot;name&quot;]);</div><div class="line">console.log(demo.age);</div><div class="line">// demo.showName();</div><div class="line">//   /* alert(demo.showName);</div><div class="line">alert(demo1.showName);</div><div class="line">alert(demo.showName == demo1.showName);</div></pre></td></tr></table></figure>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var arr = [];  // 数组</div><div class="line">arr.run = function() &#123;  //  自定义方法</div><div class="line">    alert(&quot;酸辣土豆丝&quot;);</div><div class="line">&#125;</div><div class="line">//arr.run();</div><div class="line">var arr1 = [];  // 也是一个数组</div><div class="line">//arr1.run();  // 可以吗</div><div class="line">//  会有一个问题</div><div class="line">//  只要是 数组 我们能不能都有run 这个方法呢</div><div class="line">//   这个时候我们可以吧 prototype  原型</div><div class="line">Array.prototype.run = function() &#123;  // 只要是数组，都会调用这个方法</div><div class="line">    alert(&quot;散啦土豆&quot;);</div><div class="line">&#125;</div><div class="line">var demo = [];</div><div class="line">demo.run();</div><div class="line">var demo1 = [];</div><div class="line">demo1.run();</div></pre></td></tr></table></figure>
-<h2 id="原型的面向对象"><a href="#原型的面向对象" class="headerlink" title="原型的面向对象"></a>原型的面向对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;   //  构造函数</div><div class="line">    this.name = name;   // 只写属性</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"> Person.prototype.showName = function() &#123;  // 用的共同的父亲</div><div class="line">     alert(&quot;我的名字是&quot;+ this.name);</div><div class="line"> &#125;</div><div class="line"> Person.prototype.showAge = function() &#123;</div><div class="line">     alert(&quot;我的名字是&quot;+ this.age);</div><div class="line"> &#125;</div><div class="line"> var demo = new Person(&quot;刘德华&quot;,15);</div><div class="line"> var demo1 = new Person(&quot;刘德华&quot;,15);</div><div class="line"> demo.showName();</div><div class="line"> alert(demo.showName === demo1.showName);</div></pre></td></tr></table></figure>
-
+        
       
     </div>
 
@@ -485,17 +465,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -510,7 +481,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -521,7 +492,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -532,7 +503,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -577,22 +548,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包原理"><span class="nav-number">3.</span> <span class="nav-text">闭包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的作用链接域"><span class="nav-number">4.</span> <span class="nav-text">变量的作用链接域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的常用写法"><span class="nav-number">5.</span> <span class="nav-text">闭包的常用写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的原理"><span class="nav-number">6.</span> <span class="nav-text">闭包的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包传递参数"><span class="nav-number">7.</span> <span class="nav-text">闭包传递参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件传递参数"><span class="nav-number">8.</span> <span class="nav-text">事件传递参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数"><span class="nav-number">9.</span> <span class="nav-text">立即执行函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象数据类型"><span class="nav-number">10.</span> <span class="nav-text">对象数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明对象"><span class="nav-number">11.</span> <span class="nav-text">声明对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数版本的对象"><span class="nav-number">12.</span> <span class="nav-text">函数版本的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">13.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new关键字声明"><span class="nav-number">14.</span> <span class="nav-text">new关键字声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">15.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型的面向对象"><span class="nav-number">16.</span> <span class="nav-text">原型的面向对象</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
