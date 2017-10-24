@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Express," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Express+Mongodb+Ajax,实现博客增删查改">
+<meta name="keywords" content="Express">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express+Mongodb三">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/Express-Mongodb三/index.html">
+<meta property="og:site_name" content="博落阁">
+<meta property="og:description" content="Express+Mongodb+Ajax,实现博客增删查改">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-24T08:42:13.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express+Mongodb三">
+<meta name="twitter:description" content="Express+Mongodb+Ajax,实现博客增删查改">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/29/Express-Mongodb三/"/>
+
+
+
+
+
+  <title>Express+Mongodb三 | 博落阁</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">博落阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">倚楼听风雨，淡看江湖路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/29/Express-Mongodb三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林夕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博落阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Express+Mongodb三</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-29T15:27:32+08:00">
+                2016-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Express+Mongodb+Ajax,实现博客增删查改<br><a id="more"></a></p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">express blogDemo</div><div class="line">cd blogDemo</div><div class="line">cnpm install</div><div class="line">npm start</div></pre></td></tr></table></figure>
+<h2 id="修改模板引擎"><a href="#修改模板引擎" class="headerlink" title="修改模板引擎"></a>修改模板引擎</h2><p>为了能让 html 文件作为 express 渲染页面的模板，因此我们决定采用 ejs 模板引擎，因为它和html是相互兼容的。要使用它，先安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install ejs --save</div></pre></td></tr></table></figure></p>
+<p>然后是在app.js里修改模板引擎，在根目录的app.js中，有关模板引擎的是这么两句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// view engine setup</div><div class="line">app.set(&apos;views&apos;, path.join(__dirname, &apos;views&apos;));</div><div class="line">app.set(&apos;view engine&apos;, &apos;jade&apos;);</div></pre></td></tr></table></figure></p>
+<p>第一句：设置模板的路径是在根目录<code>(__dirname)</code>下的views文件夹<br>第二句：将模板引擎设置为以.jade为后缀名的文件<br>将上面两句修改为以下三句，即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// view engine setup</div><div class="line">app.set(&apos;views&apos;, path.join(__dirname, &apos;views&apos;));</div><div class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</div><div class="line">app.engine(&apos;html&apos;, require(&quot;ejs&quot;).__express);</div></pre></td></tr></table></figure></p>
+<h2 id="新增页面"><a href="#新增页面" class="headerlink" title="新增页面"></a>新增页面</h2><p>然后将 views 文件下的 jade 文件全部删除，并新增 index.html、update.html、error.html 三个html文件<br>index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</div><div class="line">&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/stylesheets/style.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;h3 class=&quot;&quot;&gt;&lt;%= name %&gt;&lt;/h3&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>update.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</div><div class="line">&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/stylesheets/style.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;h3 class=&quot;&quot;&gt;&lt;%= name %&gt;&lt;/h3&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>error.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;&gt;</div><div class="line">&lt;title&gt;错误页&lt;/title&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/stylesheets/style.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;div class=&quot;content&quot;&gt;错误！&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="设置路由"><a href="#设置路由" class="headerlink" title="设置路由"></a>设置路由</h2><p>要使得以上3个页面能正常访问，需要在 routes 文件下设置路由。<br>先删除 routes 下的所有js文件，然后再新增 index.js 和 update.js 文件（这里无需error.js，因为在app.js里有写）<br>index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">/* GET home page. */</div><div class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</div><div class="line">    res.render(&apos;index&apos;, &#123; title: &apos;博客首页&apos;, name: &apos;博客&apos;&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure></p>
+<p>update.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var router = express.Router();</div><div class="line"></div><div class="line">/* GET update page. */</div><div class="line">router.get(&apos;/update&apos;, function(req, res, next) &#123;</div><div class="line">    res.render(&apos;update&apos;, &#123; title: &apos;博客更新页&apos;, name: &apos;博客更新&apos;&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = router;</div></pre></td></tr></table></figure></p>
+<p>我们在根目录的 app.js 里设置相应的路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var routes = require(&apos;./routes/index&apos;);</div><div class="line">var users = require(&apos;./routes/users&apos;);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">app.use(&apos;/&apos;, routes);</div><div class="line">app.use(&apos;/users&apos;, users);</div></pre></td></tr></table></figure></p>
+<p>修改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var index = require(&apos;./routes/index&apos;);</div><div class="line">var update = require(&apos;./routes/update&apos;);</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">app.use(&apos;/&apos;, index);</div><div class="line">app.use(&apos;/&apos;, update);</div></pre></td></tr></table></figure></p>
+<p>最后，检验下我们的成果。在项目根目录打开命令行面板，输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>在浏览器里打开 <a href="http://localhost:3000/，http://localhost:3000/update，" target="_blank" rel="external">http://localhost:3000/，http://localhost:3000/update，</a> 便可以看到博客首页、博客更新页。</p>
+<p>而 <a href="http://localhost:3000/error" target="_blank" rel="external">http://localhost:3000/error</a> 、<a href="http://localhost:3000/abc" target="_blank" rel="external">http://localhost:3000/abc</a> 之类的则会定向到错误页</p>
+<h2 id="调整模板"><a href="#调整模板" class="headerlink" title="调整模板"></a>调整模板</h2><p>我们接着调整index.html、update.html页面，以及public里stylesheets目录下的css文件，<br>将首页和更新页的UI界面调整成文章开头处的博客系统UI界面。并在public里javascripts目录下新增jquery.min.js文件<br>index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;blog-add&quot;&gt;</div><div class="line">    &lt;div class=&quot;blog-textarea&quot;&gt;</div><div class="line">        &lt;textarea name=&quot;&quot; class=&quot;textarea-add&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;p class=&quot;blog-action&quot;&gt;</div><div class="line">        &lt;a class=&quot;btn-publish&quot; href=&quot;javascript:;&quot;&gt;发布&lt;/a&gt;</div><div class="line">    &lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div class=&quot;blog&quot;&gt;</div><div class="line">    &lt;ul class=&quot;blog-list&quot;&gt;</div><div class="line">        &lt;li class=&quot;blog-item&quot;&gt;</div><div class="line">            &lt;p class=&quot;blog-content&quot;&gt;你好&lt;/p&gt;</div><div class="line">            &lt;p class=&quot;blog-extra&quot;&gt;</div><div class="line">                &lt;span class=&quot;date&quot;&gt;2015-10-10&lt;/span&gt;</div><div class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;delete&quot;&gt;删除&lt;/a&gt;</div><div class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;update&quot;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>update.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;blog-add&quot;&gt;</div><div class="line">    &lt;div class=&quot;blog-textarea&quot;&gt;</div><div class="line">        &lt;textarea name=&quot;&quot; class=&quot;textarea-add&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;p class=&quot;blog-action&quot;&gt;</div><div class="line">        &lt;a class=&quot;btn-update&quot; href=&quot;javascript:;&quot;&gt;更新&lt;/a&gt;</div><div class="line">    &lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>调整后的css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">* &#123;margin: 0;padding: 0;&#125;</div><div class="line">body &#123;padding: 50px;font: 14px &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif;&#125;</div><div class="line">a &#123;color: #00B7FF;&#125;</div><div class="line">li &#123;list-style: none;&#125;</div><div class="line">a &#123;text-decoration: none;&#125;</div><div class="line"></div><div class="line">.blog-add .blog-textarea &#123;margin: 20px 0 10px;padding: 10px;border: 1px solid #ccc;&#125;</div><div class="line">.blog-add .textarea-add &#123;width: 100%;height: 80px;border: none;resize: none;outline: none;&#125;</div><div class="line">.blog-add .blog-action &#123;line-height: 30px;text-align: right;&#125;</div><div class="line">.blog-add .blog-action .btn-publish,</div><div class="line">.blog-add .blog-action .btn-update &#123;border: 1px solid #00B7FF;padding: 5px 20px;border-radius: 3px;&#125;</div><div class="line">.blog-list .blog-item &#123;padding-top: 10px;line-height: 22px;&#125;</div><div class="line">.blog-list .blog-item p &#123;padding: 5px 0;word-wrap: break-word;&#125;</div><div class="line">.blog-list .blog-item &#123;border-bottom: 1px dotted #ddd;&#125;</div><div class="line">.blog-list .blog-extra &#123;overflow: hidden;color: #999;text-align: right;&#125;</div><div class="line">.blog-list .blog-extra .date &#123;float: left;&#125;</div><div class="line">.blog-list .blog-extra a &#123;border-right: 1px dotted #00B7FF;padding: 0 10px;margin-right: -6px;font-size: 12px;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="express与mongodb交互"><a href="#express与mongodb交互" class="headerlink" title="express与mongodb交互"></a>express与mongodb交互</h2><p>交互流程，在首页中，我们点击 ‘发布’ 按钮，将文本框里的内容发送至后台，后台语言将数据保存到数据库，<br>然后页面刷新，从数据库中读取博客数据，最后，将数据显示到页面</p>
+<h3 id="发送数据至后台"><a href="#发送数据至后台" class="headerlink" title="发送数据至后台"></a>发送数据至后台</h3><p>index.html 新增js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/javascripts/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(function() &#123;</div><div class="line"></div><div class="line">    // 发布</div><div class="line">    $(&apos;.btn-publish&apos;).on(&apos;click&apos;, function() &#123;</div><div class="line">        var blogContent = $(&apos;.textarea-add&apos;).val().trim().replace(/\n/g, &apos;&lt;br/&gt;&apos;);</div><div class="line"></div><div class="line">        if (!blogContent) &#123;</div><div class="line">            alert(&apos;内容不能为空!&apos;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var date = new Date(),</div><div class="line">            yy = date.getFullYear(),</div><div class="line">            MM = date.getMonth() + 1,</div><div class="line">            dd = date.getDate(),</div><div class="line">            hh = date.getHours(),</div><div class="line">            mm = date.getMinutes(),</div><div class="line">            ss = date.getSeconds();</div><div class="line"></div><div class="line">        var postData = &#123;</div><div class="line">            &apos;content&apos;: blogContent,</div><div class="line">            &apos;date&apos;: yy + &apos;-&apos; + MM + &apos;-&apos; + dd + &apos; &apos; + hh + &apos;:&apos; + mm + &apos;:&apos; + ss</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        $.ajax(&#123;</div><div class="line">            url: &apos;/&apos;,</div><div class="line">            type: &apos;post&apos;,</div><div class="line">            data: postData,</div><div class="line">            success: function(data)&#123;</div><div class="line">                alert(&apos;发布成功！&apos;);</div><div class="line">                location.href = &apos;/&apos;;</div><div class="line">            &#125;,</div><div class="line">            error: function(data)&#123;</div><div class="line">                alert(&apos;发布失败！&apos;);</div><div class="line">                location.href = &apos;error&apos;;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="node-js接收数据并将数据保存到数据库"><a href="#node-js接收数据并将数据保存到数据库" class="headerlink" title="node.js接收数据并将数据保存到数据库"></a>node.js接收数据并将数据保存到数据库</h3><p>mongoose 是一个文档对象模型库（ODM），它的语法和 mongodb 里的 shell 命令是一样的。<br>如果你使用过 node.js 直接操作 mongodb，你会发现代码中会出现很多嵌套、回调以及各种潜在问题。<br>但有了 mongoose，你可以直接在 node.js 里使用 mongoose 自身的语法，不仅代码简洁，操作数据方便，而且避免了很多额外的问题<br>要使用它，就得先安装它<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install mongoose --save</div></pre></td></tr></table></figure></p>
+<p>在 data 文件夹下新增 mongoose.js 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var mongoose = require(&apos;mongoose&apos;);</div><div class="line"></div><div class="line">mongoose.connect(&apos;mongodb://localhost/blog&apos;);</div><div class="line"></div><div class="line">var blogSchema = new mongoose.Schema(&#123;</div><div class="line">    content: &#123;type: String, unique:true&#125;, // unique 保证数据的唯一，但有时候不管用</div><div class="line">    date: String</div><div class="line">&#125;, &#123;collection: &apos;post&apos;&#125;);</div><div class="line"></div><div class="line">var post = mongoose.model(&apos;post&apos;, blogSchema);</div><div class="line"></div><div class="line">module.exports = post;</div></pre></td></tr></table></figure></p>
+<p>然后在根目录下 app.js 里的 var app = express(); 下一行增加以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">global.post = require(&apos;./data/mongoose&apos;);</div></pre></td></tr></table></figure></p>
+<p>因为前面ajax是将数据 post 到 index.html 页面，因此我们需要在 index.js 处理 post 的请求。在 index.js 里新增代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">/* POST home page. */</div><div class="line">router.post(&apos;/&apos;, function(req, res) &#123;</div><div class="line">    var content = req.body.content;</div><div class="line">    var date = req.body.date;</div><div class="line"></div><div class="line">    if (content &amp;&amp; date) &#123;</div><div class="line">        var newPost = new post(&#123;</div><div class="line">            content: content,</div><div class="line">            date: date</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        newPost.save(function (err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            // newPost is saved!</div><div class="line">            console.log(&apos;保存成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>刷新页面，然后在文本框里输入 ‘夜晚，这是一个很安静的夜晚！’ ，点击 ‘发布’ 按钮后，会弹出 ‘发布成功！’ 的提示。</p>
+<p>然后，我们在操作数据库的命名行面板中，输入查找命令，即可打印出我们刚才发布的内容，这也说明数据在数据库里保存成功了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.post.find()</div></pre></td></tr></table></figure></p>
+<h3 id="读取数据库数据并将数据显示至页面"><a href="#读取数据库数据并将数据显示至页面" class="headerlink" title="读取数据库数据并将数据显示至页面"></a>读取数据库数据并将数据显示至页面</h3><p>在刚才的操作中，我们只是点击 ‘发布’ 按钮，将数据 post 到博客首页，并将数据保存到数据库。<br>但是博客首页刷新后，我们并没有写任何读取数据库的代码<br>因此，需要在博客首页刷新时（也就是 get 时），去读取数据库，并把读取的数据发送给前端模板，再通过模板把这些数据渲染出来<br>将 index.js 里的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/* GET home page. */</div><div class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</div><div class="line">    res.render(&apos;index&apos;, &#123; title: &apos;博客首页&apos;, name: &apos;博客&apos;&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>修改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* GET home page. */</div><div class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</div><div class="line"></div><div class="line">    post.find(&#123;&#125;, function(err, docs) &#123;</div><div class="line">        if (err) &#123;</div><div class="line">            console.error(err);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        // docs 是包含了符合条件的多个文档的一个数组</div><div class="line">        // console.log(docs);</div><div class="line">        res.render(&apos;index&apos;, &#123; title: &apos;博客首页&apos;, name: &apos;博客&apos;, content: docs.reverse()&#125;);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在这里，docs 是读取数据库后返回的数据，它是一个数组，我使用了 docs.reverse() 对数组进行反转，也就是让最新的数据，渲染在博客列表的最前面<br>然后，我们再回到模板里。因为，后台返回给前台的数据是动态的，因此也需要对 index.html 中的列表部分进行修改，将 index.html 里的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;blog&quot;&gt;</div><div class="line">    &lt;ul class=&quot;blog-list&quot;&gt;</div><div class="line">        &lt;li class=&quot;blog-item&quot;&gt;</div><div class="line">            &lt;p class=&quot;blog-content&quot;&gt;你好&lt;/p&gt;</div><div class="line">            &lt;p class=&quot;blog-extra&quot;&gt;</div><div class="line">                &lt;span class=&quot;date&quot;&gt;2015-10-10&lt;/span&gt;</div><div class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;delete&quot;&gt;删除&lt;/a&gt;</div><div class="line">                &lt;a href=&quot;javascript:;&quot; class=&quot;update&quot;&gt;更新&lt;/a&gt;</div><div class="line">            &lt;/p&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>修改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;blog&quot;&gt;</div><div class="line">    &lt;ul class=&quot;blog-list&quot;&gt;</div><div class="line">        &lt;% for(var i=0; i&lt;content.length; i++) &#123; %&gt;</div><div class="line">            &lt;li class=&quot;blog-item&quot;&gt;</div><div class="line">                &lt;p class=&quot;blog-content&quot;&gt;&lt;%- content[i].content %&gt;&lt;/p&gt;</div><div class="line">                &lt;p class=&quot;blog-extra&quot;&gt;</div><div class="line">                    &lt;span class=&quot;date&quot;&gt;&lt;%= content[i].date %&gt;&lt;/span&gt;</div><div class="line">                    &lt;a href=&quot;javascript:;&quot; class=&quot;delete&quot; data-content=&quot;&lt;%= content[i].content %&gt;&quot;&gt;删除&lt;/a&gt;</div><div class="line">                    &lt;a href=&quot;javascript:;&quot; class=&quot;update&quot; data-content=&quot;&lt;%= content[i].content %&gt;&quot;&gt;更新&lt;/a&gt;</div><div class="line">                &lt;/p&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">        &lt;% &#125; %&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>再次刷新页面，便能看到 ‘夜晚，这是一个很安静的夜晚！’ 这条数据了</p>
+<h3 id="数据的删除与更新"><a href="#数据的删除与更新" class="headerlink" title="数据的删除与更新"></a>数据的删除与更新</h3><p>index.html 列表里有这样的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;javascript:;&quot; class=&quot;delete&quot; data-content=&quot;&lt;%= content[i].content %&gt;&quot;&gt;删除&lt;/a&gt;</div><div class="line">&lt;a href=&quot;javascript:;&quot; class=&quot;update&quot; data-content=&quot;&lt;%= content[i].content %&gt;&quot;&gt;更新&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>这里的 content[i].content 就是每条博客的内容。当点击 ‘删除’ 和 ‘更新’ 这个按钮时，<br>我们会根据它的 data-content 属性来获取这条博客的内容，然后对符合内容的数据进行删除和更新操作</p>
+<h3 id="数据的删除"><a href="#数据的删除" class="headerlink" title="数据的删除"></a>数据的删除</h3><p>发送博客类似，这里的删除操作也是通过发送 ajax 给后台，在 index.html 里的js部分，新增以下js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 删除</div><div class="line">$(&apos;.delete&apos;).on(&apos;click&apos;, function() &#123;</div><div class="line">    var deleteContent = $(this).attr(&apos;data-content&apos;);</div><div class="line"></div><div class="line">    var postData = &#123;</div><div class="line">        &apos;deleteContent&apos;: deleteContent</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    if (confirm(&apos;您确定要删除这条博客吗？&apos;)) &#123;</div><div class="line">        $.ajax(&#123;</div><div class="line">            url: &apos;/&apos;,</div><div class="line">            type: &apos;post&apos;,</div><div class="line">            data: postData,</div><div class="line">            success: function(data)&#123;</div><div class="line">                // alert(&apos;成功！&apos;);</div><div class="line">                location.href = &apos;/&apos;;</div><div class="line">            &#125;,</div><div class="line">            error: function(data)&#123;</div><div class="line">                // alert(&apos;失败！&apos;);</div><div class="line">                location.href = &apos;error&apos;;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>前台页面发送了 post 提交请求，那后台就需要处理这个 post 请求。<br>于是，index.js 新增删除数据的代码，即 index.js 中的 router.post 部分更新为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">/* POST home page. */</div><div class="line">router.post(&apos;/&apos;, function(req, res) &#123;</div><div class="line">    var content = req.body.content;</div><div class="line">    var date = req.body.date;</div><div class="line"></div><div class="line">    if (content &amp;&amp; date) &#123;</div><div class="line">        var newPost = new post(&#123;</div><div class="line">            content: content,</div><div class="line">            date: date</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        newPost.save(function (err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            // newPost is saved!</div><div class="line">            console.log(&apos;保存成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var deleteContent = req.body.deleteContent;</div><div class="line"></div><div class="line">    if (deleteContent) &#123;</div><div class="line">        post.remove(&#123;content: deleteContent&#125;, function(err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            console.log(&apos;删除成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>删除数据的功能基本完成。我们运行下重启服务的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>刷新浏览器页面，发布一条内容为 ‘abcd’ 的博客后，然后点 ‘删除’ 按钮，<br>首先它会提示你 ‘您确定要删除这条博客吗？’ ，点击 ‘确定’ 按钮后，页面刷新， ‘abcd’ 这条博客就在页面里被删除了。<br>你也可以在数据库命令面板中运行 db.post.find()，查看该条数据是否真的已删除</p>
+<h3 id="数据的更新"><a href="#数据的更新" class="headerlink" title="数据的更新"></a>数据的更新</h3><p>数据的更新有点特别，这点在文章的开头也能看出。因为博客的更新是在 update.html 完成的，你可以先回到前面看下博客更新页的UI界面<br>博客更新的流程，主要分为3步<br>1.在博客首页点击 ‘更新’ 按钮后，将该条博客的内容作为更新页地址的参数，并且此时，页面跳转到博客更新页(update.html)。简单来说，就是把博客内容带到更新页。<br>2.在博客更新页读取url里的参数，并将它赋值给文本框中。然后在文本框修改博客内容，点击文本框底部右边的 ‘更新’ 按钮，将文本框里的内容通过ajax的方式 post 到博客首页。其实这里的更新操作和博客首页的发布博客类似。<br>3.post 到博客首页后，页面将会跳转到博客首页，博客首页在后台处理 post 请求，mongoose代码更新该条博客数据，并将新的博客内容显示出来<br>第一步，在 index.html 中新增js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 更新跳转</div><div class="line">$(&apos;.update&apos;).on(&apos;click&apos;, function() &#123;</div><div class="line">    var updateContent = $(this).attr(&apos;data-content&apos;);</div><div class="line">    location.href = &apos;/update?updateBlog=&apos; + updateContent;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>第二步，在 update.html 中新增js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/javascripts/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(function() &#123;</div><div class="line"></div><div class="line">    // 从url读取要更新的内容，简单粗暴处理</div><div class="line">    var oldContent = decodeURI(window.location.search.substr(12));</div><div class="line"></div><div class="line">    // 设置它到文本域，并保留换行</div><div class="line">    $(&apos;.textarea-add&apos;).val(oldContent.replace(/\&lt;br\/&gt;/g, &apos;\n&apos;));</div><div class="line"></div><div class="line">    // 更新</div><div class="line">    $(&apos;.btn-update&apos;).on(&apos;click&apos;, function() &#123;</div><div class="line">        var updateContent = $(&apos;.textarea-add&apos;).val().trim().replace(/\n/g, &apos;&lt;br/&gt;&apos;);</div><div class="line"></div><div class="line">        if (updateContent === oldContent) &#123;</div><div class="line">            alert(&apos;内容没有更新！&apos;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var postData = &#123;</div><div class="line">            &apos;oldContent&apos;: oldContent,</div><div class="line">            &apos;updateContent&apos;: updateContent</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        $.ajax(&#123;</div><div class="line">            url: &apos;/&apos;,</div><div class="line">            type: &apos;post&apos;,</div><div class="line">            data: postData,</div><div class="line">            success: function(data)&#123;</div><div class="line">                alert(&apos;更新成功！&apos;);</div><div class="line">                location.href = &apos;/&apos;;</div><div class="line">            &#125;,</div><div class="line">            error: function(data)&#123;</div><div class="line">                alert(&apos;更新失败！&apos;);</div><div class="line">                location.href = &apos;error&apos;;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>这里需要注意下，url里的参数必须 decodeURI 转码下才能赋值给文本框，并且html标签里的换行（<br>）与文本框的换行（\n）也是不同的，<br>在读取操作时也要进行特殊处理。还有，如果博客内容没有发生变化，要给予提示<br>第三步，将 index.js 中的 router.post 部分更新为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">/* POST home page. */</div><div class="line">router.post(&apos;/&apos;, function(req, res) &#123;</div><div class="line">    var content = req.body.content;</div><div class="line">    var date = req.body.date;</div><div class="line"></div><div class="line">    if (content &amp;&amp; date) &#123;</div><div class="line">        var newPost = new post(&#123;</div><div class="line">            content: content,</div><div class="line">            date: date</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        newPost.save(function (err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            // newPost is saved!</div><div class="line">            console.log(&apos;保存成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var deleteContent = req.body.deleteContent;</div><div class="line"></div><div class="line">    if (deleteContent) &#123;</div><div class="line">        post.remove(&#123;content: deleteContent&#125;, function(err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            console.log(&apos;删除成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var oldContent = req.body.oldContent,</div><div class="line">        updateContent = req.body.updateContent;</div><div class="line"></div><div class="line">    if (oldContent &amp;&amp; updateContent) &#123;</div><div class="line">        post.update(&#123;content: oldContent&#125;, &#123;$set: &#123;&apos;content&apos;: updateContent&#125;&#125;, function(err) &#123;</div><div class="line">            if (err) &#123;</div><div class="line">                console.error(err);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            console.log(&apos;更新成功！&apos;);</div><div class="line">            res.send(200);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>重启服务的命令，来检测下更新博客的功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>刷新浏览器页面，首先我们发布一条内容为 ‘123’ 的博客后，然后点 ‘更新’ 按钮，页面跳转到博客更新页，<br>在文本框里将 ‘123’ 更新为 ‘456’，再点 ‘更新’ 按钮后，页面会提示 ‘更新成功！’ ，<br>并且此时，页面将跳转到博客首页，你也将看到之前 ‘123’ 的博客被更新为 ‘456’。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Express/" rel="tag"># Express</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/26/Express-Mongodb二/" rel="next" title="Express+Mongodb二">
+                <i class="fa fa-chevron-left"></i> Express+Mongodb二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/02/JS十大难点一/" rel="prev" title="JS十大难点一">
+                JS十大难点一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="林夕" />
+          <p class="site-author-name" itemprop="name">林夕</p>
+           
+              <p class="site-description motion-element" itemprop="description">随风奔跑自由是方向</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">73</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pengrongjie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pengrongjie.com" target="_blank" title="个人">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  个人
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目"><span class="nav-number">1.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改模板引擎"><span class="nav-number">2.</span> <span class="nav-text">修改模板引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增页面"><span class="nav-number">3.</span> <span class="nav-text">新增页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置路由"><span class="nav-number">4.</span> <span class="nav-text">设置路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整模板"><span class="nav-number">5.</span> <span class="nav-text">调整模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express与mongodb交互"><span class="nav-number">6.</span> <span class="nav-text">express与mongodb交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送数据至后台"><span class="nav-number">6.1.</span> <span class="nav-text">发送数据至后台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js接收数据并将数据保存到数据库"><span class="nav-number">6.2.</span> <span class="nav-text">node.js接收数据并将数据保存到数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据库数据并将数据显示至页面"><span class="nav-number">6.3.</span> <span class="nav-text">读取数据库数据并将数据显示至页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的删除与更新"><span class="nav-number">6.4.</span> <span class="nav-text">数据的删除与更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的删除"><span class="nav-number">6.5.</span> <span class="nav-text">数据的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的更新"><span class="nav-number">6.6.</span> <span class="nav-text">数据的更新</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林夕</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
